@@ -15,4 +15,4 @@ Target shape: `Func<Captures, Mod[]>` delegates, or named `static` methods with 
 - Many closures are near-duplicates. Deduplicate as you go, the same way ticket 04 found 122 `preDamageFunc` bodies reducing to 59 distinct ones.
 
 ## Acceptance
-**≥99.5% of the 23,215-line ModCache corpus parses to a byte-identical canonical form.** Remaining failures enumerated with a reason each.
+**≥99.5% of the 19,313 entries PoB parses whole reproduce byte-identical canonical form.** The 3,894 entries PoB leaves a remainder on are a separate, lower-bar metric: reproduce both the mods *and* the exact leftover text, but do not count them in the headline. Remaining failures enumerated with a reason each.
