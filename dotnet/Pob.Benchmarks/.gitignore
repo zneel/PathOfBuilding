@@ -1,0 +1,2 @@
+# BenchmarkDotNet reports and the throwaway runner projects it generates.
+BenchmarkDotNet.Artifacts/

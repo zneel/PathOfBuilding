@@ -1,0 +1,5412 @@
+{
+  "format": 1,
+  "ticket": "docs/migration/tickets/08-test-infrastructure.md",
+  "description": "Inventory of the busted spec suite under spec/System. One entry per spec file: what it exercises, which mainOutput keys and ModStore queries it asserts on, and which migration issue has to land before it can be ported to xUnit. The per-file fields down to 'tests' are extracted mechanically from the sources; 'category', 'primaryUnblocker', 'unblockedBy' and 'note' are a hand review of each file. Regenerate the mechanical fields after any change to spec/System; Pob.Tests/SpecInventoryTests.cs fails if this file drifts out of date.",
+  "specRoot": "spec/System",
+  "fileCount": 43,
+  "testCount": 545,
+  "countsExplanation": {
+    "byPrimaryUnblocker": "files/tests whose single most direct blocker is this issue; every file counted once",
+    "byAnyUnblocker": "files/tests that list this issue anywhere in unblockedBy; files counted in several buckets"
+  },
+  "counts": {
+    "byCategory": {
+      "domain": 9,
+      "drop": 2,
+      "engine": 11,
+      "platform": 9,
+      "superseded": 1,
+      "ui": 11
+    },
+    "byPrimaryUnblocker": {
+      "8": {
+        "files": 1,
+        "tests": 1
+      },
+      "16": {
+        "files": 5,
+        "tests": 150
+      },
+      "18": {
+        "files": 3,
+        "tests": 17
+      },
+      "23": {
+        "files": 2,
+        "tests": 53
+      },
+      "24": {
+        "files": 1,
+        "tests": 11
+      },
+      "25": {
+        "files": 6,
+        "tests": 37
+      },
+      "26": {
+        "files": 1,
+        "tests": 43
+      },
+      "27": {
+        "files": 1,
+        "tests": 60
+      },
+      "32": {
+        "files": 1,
+        "tests": 3
+      },
+      "33": {
+        "files": 9,
+        "tests": 88
+      },
+      "36": {
+        "files": 3,
+        "tests": 15
+      },
+      "39": {
+        "files": 1,
+        "tests": 6
+      },
+      "40": {
+        "files": 2,
+        "tests": 11
+      },
+      "41": {
+        "files": 1,
+        "tests": 4
+      },
+      "42": {
+        "files": 3,
+        "tests": 18
+      },
+      "43": {
+        "files": 1,
+        "tests": 3
+      },
+      "none": {
+        "files": 2,
+        "tests": 25
+      }
+    },
+    "byAnyUnblocker": {
+      "8": {
+        "files": 1,
+        "tests": 1
+      },
+      "12": {
+        "files": 1,
+        "tests": 10
+      },
+      "14": {
+        "files": 4,
+        "tests": 150
+      },
+      "15": {
+        "files": 1,
+        "tests": 88
+      },
+      "16": {
+        "files": 14,
+        "tests": 230
+      },
+      "18": {
+        "files": 6,
+        "tests": 37
+      },
+      "19": {
+        "files": 3,
+        "tests": 31
+      },
+      "22": {
+        "files": 11,
+        "tests": 194
+      },
+      "23": {
+        "files": 11,
+        "tests": 194
+      },
+      "24": {
+        "files": 13,
+        "tests": 236
+      },
+      "25": {
+        "files": 11,
+        "tests": 145
+      },
+      "26": {
+        "files": 2,
+        "tests": 44
+      },
+      "27": {
+        "files": 2,
+        "tests": 61
+      },
+      "32": {
+        "files": 1,
+        "tests": 3
+      },
+      "33": {
+        "files": 9,
+        "tests": 88
+      },
+      "36": {
+        "files": 3,
+        "tests": 15
+      },
+      "37": {
+        "files": 3,
+        "tests": 56
+      },
+      "38": {
+        "files": 2,
+        "tests": 16
+      },
+      "39": {
+        "files": 2,
+        "tests": 9
+      },
+      "40": {
+        "files": 3,
+        "tests": 50
+      },
+      "41": {
+        "files": 2,
+        "tests": 6
+      },
+      "42": {
+        "files": 3,
+        "tests": 18
+      },
+      "43": {
+        "files": 1,
+        "tests": 3
+      }
+    }
+  },
+  "categories": {
+    "engine": "Needs the C# calc engine (issues 22-27). Cannot be ported today.",
+    "domain": "Needs the domain model, mod parser, item model or passive tree, but not the calc engine.",
+    "ui": "Needs a ported UI layer (issues 34-43).",
+    "platform": "Needs the HTTP / OAuth / trade layer (issues 31-33).",
+    "superseded": "Another oracle already covers this ground; port only if that oracle proves thin.",
+    "drop": "Tests a Lua-language mechanism with no C# counterpart. Do not port."
+  },
+  "tickets": {
+    "8": "07 Golden output corpus",
+    "12": "11 EvalMod: the tag evaluator",
+    "14": "13 ModParser: data tables and the scan algorithm",
+    "15": "14 ModParser: the closure subset",
+    "16": "15 Item model and item-text parsing",
+    "18": "17 PassiveSpec: allocation, pathing, cluster jewels",
+    "19": "18 Data loaders",
+    "22": "21 CalcSetup: environment construction",
+    "23": "22 CalcActiveSkill",
+    "24": "23 CalcPerform: the orchestrator",
+    "25": "24 CalcOffence",
+    "26": "25 CalcDefence",
+    "27": "26 Triggers, mirages, and full DPS",
+    "32": "31 Build XML and build codes",
+    "33": "32 PoE OAuth and trade API",
+    "36": "35 Generic widget port",
+    "37": "36 Simple tabs: Notes, Config, Skills",
+    "38": "37 Tooltip renderer",
+    "39": "38 CalcsTab and the breakdown panels",
+    "40": "39 ItemsTab",
+    "41": "40 PassiveTreeView canvas",
+    "42": "41 Import, Party and Compare tabs",
+    "43": "42 Application shell and build list"
+  },
+  "distinctOutputKeys": [
+    "ActiveSpectreLimit",
+    "ActiveSpiderLimit",
+    "AreaOfEffectMod",
+    "AreaOfEffectRadius",
+    "Armour",
+    "AverageDamage",
+    "AverageHit",
+    "BasePhysicalDamageReduction",
+    "BeidatAdditionalProjectiles",
+    "BleedDPS",
+    "BrandTicks",
+    "ChaosEnemyDamageMult",
+    "ChaosMaximumHitTaken",
+    "ChillDurationMod",
+    "ColdEnemyDamageMult",
+    "ColdMaximumHitTaken",
+    "ColdMin",
+    "CombinedDPS",
+    "CritBifurcates",
+    "CritChance",
+    "CritMultiplier",
+    "CurrentChill",
+    "CurrentShock",
+    "CurseEffectOnSelf",
+    "DurationTertiary",
+    "ESCost",
+    "EffectiveBlockChance",
+    "EffectiveSourceRate",
+    "ElusiveEffectMod",
+    "EnduranceChargesMax",
+    "EnergyShield",
+    "EnergyShieldRecoup",
+    "Evasion",
+    "FireEffMult",
+    "FireEnemyDamageMult",
+    "FireMaximumHitTaken",
+    "FireResist",
+    "FrenzyChargesMax",
+    "GemQuality",
+    "GuardSkillActive",
+    "HitChance",
+    "ImpaleDPS",
+    "ImpaleDuration",
+    "Int",
+    "Life",
+    "LifeCost",
+    "LifeRecoup",
+    "LightningEffMult",
+    "LightningEnemyDamageMult",
+    "LightningMax",
+    "LightningMaximumHitTaken",
+    "LightningMin",
+    "LightningResist",
+    "LightningResistOverCap",
+    "LightningResistTotal",
+    "LyciaUpTimeRatio",
+    "MainHand",
+    "ManaCost",
+    "ManaRecoup",
+    "MaximumShock",
+    "Minion",
+    "MinionAllyDamageMitigation",
+    "MirageDPS",
+    "NumberOfMitigatedDamagingHits",
+    "OffHand",
+    "PhysicalDamageReduction",
+    "PhysicalEffectiveAppliedArmour",
+    "PhysicalEnemyDamageMult",
+    "PhysicalEnergyShieldRecoup",
+    "PhysicalLifeRecoup",
+    "PhysicalManaRecoup",
+    "PhysicalMaximumHitTaken",
+    "PhysicalMin",
+    "PhysicalMinBase",
+    "PhysicalTakenHit",
+    "PreBifurcateCritChance",
+    "PreEffectiveCritChance",
+    "RadianceSentinelAllyDamageMitigation",
+    "ShockEffectMod",
+    "SkillDPSMultiplier",
+    "SkillTriggerRate",
+    "SoulGainPreventionDuration",
+    "Speed",
+    "SpellBlockChance",
+    "SpellBlockChanceOverCap",
+    "StoneGolemAllyDamageMitigation",
+    "TotalDPS",
+    "TotalDot",
+    "TotalDotDPS",
+    "TotalEHP",
+    "TotalMinionLife",
+    "TotalRadianceSentinelLife",
+    "TotalSpectreLife",
+    "TotalStoneGolemLife",
+    "TotalTotemLife",
+    "TotalVoidSpawnLife",
+    "TotemLife",
+    "VoidSpawnAllyDamageMitigation",
+    "impaleStoredHitAvg"
+  ],
+  "files": [
+    {
+      "file": "spec/System/TestAbyssTimelessJewel_spec.lua",
+      "loc": 505,
+      "describes": [
+        "Abyss timeless jewels"
+      ],
+      "testCount": 12,
+      "category": "domain",
+      "primaryUnblocker": 18,
+      "unblockedBy": [
+        16,
+        18,
+        19,
+        38
+      ],
+      "engineSurface": [
+        "commonLib",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "passiveSpec",
+        "skillsTab",
+        "treeTab"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Timeless/abyss jewel archive lookup (DataJewelFileLoader, DataAbyssJewelLookUpTableHelper) and its application to the tree. Mostly PassiveSpec plus the jewel data loaders; two tests reach into AddItemTooltip and need the tooltip renderer.",
+      "tests": [
+        {
+          "name": "parses the Kurgal and Zorath seed modifiers",
+          "line": 124,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reads Kurgal seed 533 at socket 61419",
+          "line": 136,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "loads every part of the Kurgal archive in order",
+          "line": 151,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies the Kurgal example to the passive tree",
+          "line": 167,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "finds Kurgal seed 533 with rolled replacement and addition weights",
+          "line": 193,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows and scores both stats of an added damage notable",
+          "line": 225,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses named notables and generates fallback weights for variable small nodes",
+          "line": 276,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reads Zorath seed 6564 node and Inquisitor ascendancy changes",
+          "line": 303,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies the Zorath path and selected Inquisitor ascendancy example",
+          "line": 329,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "can protect an allocated ascendancy notable from Zorath",
+          "line": 367,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows passive stat differences for an Abyss timeless jewel",
+          "line": 447,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies Zorath seed 4050 to the selected Chieftain notable",
+          "line": 478,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestAilments_spec.lua",
+      "loc": 100,
+      "describes": [
+        "TestAilments"
+      ],
+      "testCount": 6,
+      "category": "engine",
+      "primaryUnblocker": 25,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "commonLib",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "modStore",
+        "skillsTab"
+      ],
+      "outputKeys": [
+        "BleedDPS",
+        "ChillDurationMod",
+        "CurrentShock",
+        "MaximumShock",
+        "ShockEffectMod"
+      ],
+      "modQueries": [
+        "PhysicalDamageConvertToCold"
+      ],
+      "note": "Ailment magnitude and duration. CalcOffence owns ailment calculation.",
+      "tests": [
+        {
+          "name": "maximum shock value",
+          "line": 15,
+          "outputKeys": [
+            "MaximumShock"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "bleed is buffed by bleed chance",
+          "line": 28,
+          "outputKeys": [
+            "BleedDPS"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "scales hit ailments with target ailment effect",
+          "line": 46,
+          "outputKeys": [
+            "ShockEffectMod"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "scales minion ailment duration with Barnacles",
+          "line": 59,
+          "outputKeys": [],
+          "modQueries": [
+            "PhysicalDamageConvertToCold"
+          ]
+        },
+        {
+          "name": "scales chilling area duration with Barnacles",
+          "line": 74,
+          "outputKeys": [
+            "ChillDurationMod"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "scales guaranteed ailments with target ailment effect",
+          "line": 87,
+          "outputKeys": [
+            "CurrentShock"
+          ],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestAttacks_spec.lua",
+      "loc": 51,
+      "describes": [
+        "TestAttacks"
+      ],
+      "testCount": 3,
+      "category": "engine",
+      "primaryUnblocker": 25,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "modStore"
+      ],
+      "outputKeys": [
+        "CritChance",
+        "CritMultiplier",
+        "HitChance"
+      ],
+      "modQueries": [
+        "Damage"
+      ],
+      "note": "Attack damage from weapon bases and item mods.",
+      "tests": [
+        {
+          "name": "creates an item and has the correct crit chance",
+          "line": 10,
+          "outputKeys": [
+            "CritChance",
+            "HitChance"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "creates an item and has the correct crit multi",
+          "line": 18,
+          "outputKeys": [
+            "CritMultiplier"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "correctly converts spell damage per stat to attack damage",
+          "line": 26,
+          "outputKeys": [],
+          "modQueries": [
+            "Damage"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestBifurcatedCrit_spec.lua",
+      "loc": 89,
+      "describes": [
+        "Bifurcated critical strikes"
+      ],
+      "testCount": 4,
+      "category": "engine",
+      "primaryUnblocker": 25,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "commonLib",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "skillsTab"
+      ],
+      "outputKeys": [
+        "AverageHit",
+        "CritBifurcates",
+        "CritChance",
+        "CritMultiplier",
+        "PreBifurcateCritChance",
+        "PreEffectiveCritChance"
+      ],
+      "modQueries": [],
+      "note": "Crit chance/multiplier interaction: lucky, marked, bifurcation, eccentricity. Pure CalcOffence arithmetic and the sharpest existing test of the rounding rules ticket 02 pinned down.",
+      "tests": [
+        {
+          "name": "uses quantised raw chance for each roll",
+          "line": 29,
+          "outputKeys": [
+            "CritChance",
+            "PreEffectiveCritChance"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "calculates bifurcated critical hit damage",
+          "line": 36,
+          "outputKeys": [
+            "AverageHit",
+            "CritBifurcates",
+            "CritChance",
+            "CritMultiplier",
+            "PreBifurcateCritChance"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "accounts for guaranteed critical strikes",
+          "line": 49,
+          "outputKeys": [
+            "CritBifurcates",
+            "CritChance",
+            "CritMultiplier",
+            "PreBifurcateCritChance"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies lucky rolls independently",
+          "line": 70,
+          "outputKeys": [
+            "AverageHit",
+            "CritBifurcates",
+            "CritChance",
+            "CritMultiplier",
+            "PreBifurcateCritChance"
+          ],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestBuildDisplayStats_spec.lua",
+      "loc": 140,
+      "describes": [
+        "Build display stats"
+      ],
+      "testCount": 6,
+      "category": "ui",
+      "primaryUnblocker": 39,
+      "unblockedBy": [
+        24,
+        25,
+        39
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "skillsTab",
+        "uiControls"
+      ],
+      "outputKeys": [
+        "ChaosMaximumHitTaken",
+        "GuardSkillActive"
+      ],
+      "modQueries": [],
+      "note": "The sidebar stat list: which stats show, in what order, with what formatting. Numbers come from the engine but the assertions are about display selection.",
+      "tests": [
+        {
+          "name": "formats compact values once and preserves normal formatting below the threshold",
+          "line": 27,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows guard suffixes for EHP and max hit values",
+          "line": 34,
+          "outputKeys": [
+            "GuardSkillActive"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "shows immunity instead of guard for an immune max hit",
+          "line": 45,
+          "outputKeys": [
+            "ChaosMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "only underlines sidebar stats with a visible breakdown",
+          "line": 56,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses aggregate breakdowns for dual-wield attacks",
+          "line": 69,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses off-hand breakdowns for shield attacks",
+          "line": 102,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestBuildListHelpers_spec.lua",
+      "loc": 111,
+      "describes": [
+        "BuildListHelpers"
+      ],
+      "testCount": 3,
+      "category": "ui",
+      "primaryUnblocker": 43,
+      "unblockedBy": [
+        43
+      ],
+      "engineSurface": [],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Build-list file enumeration and the cloud-error popup. Pure app-shell behaviour; the Lua version monkeypatches io.open and NewFileSearch, which a C# port would express as an injected filesystem.",
+      "tests": [
+        {
+          "name": "filters a recursive index without rescanning files",
+          "line": 59,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reports cloud read failures",
+          "line": 80,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "blocks descendant folder targets and selects duplicate filenames by path",
+          "line": 90,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestBuilds_spec.lua",
+      "loc": 36,
+      "describes": [],
+      "testCount": 1,
+      "category": "superseded",
+      "primaryUnblocker": 8,
+      "unblockedBy": [
+        8,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "engineSurface": [
+        "buildXml",
+        "calcsTab",
+        "commonLib"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Loads every build under spec/TestBuilds and compares ~474 mainOutput keys per build against a stored answer table. This IS the golden-output corpus, and ticket 07 (#8) rebuilds it properly. Note: the static `it(` count is 1, but the file generates one test per (build, output key) at run time -- several thousand assertions.",
+      "tests": [
+        {
+          "name": "on build: ",
+          "line": 26,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestClusterJewelGraphs_spec.lua",
+      "loc": 116,
+      "describes": [
+        "Cluster jewel subgraphs"
+      ],
+      "testCount": 2,
+      "category": "domain",
+      "primaryUnblocker": 18,
+      "unblockedBy": [
+        16,
+        18
+      ],
+      "engineSurface": [
+        "item",
+        "itemsTab"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Cluster jewel expansion graphs rebuild when an outer socket's allocation changes.",
+      "tests": [
+        {
+          "name": "updates the graph when an outer socket allocation changes",
+          "line": 37,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only builds nested graphs for allocated cluster sockets",
+          "line": 68,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestCommon_spec.lua",
+      "loc": 96,
+      "describes": [
+        "Common",
+        "Class creation and use"
+      ],
+      "testCount": 5,
+      "category": "drop",
+      "primaryUnblocker": null,
+      "unblockedBy": [],
+      "engineSurface": [
+        "commonLib"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Tests src/Modules/Common.lua's `newClass`/`new` object system: that constructors are called, that parents are initialised, that extra arguments error. Every one of these failure modes is a compile error in C#. Do not port.",
+      "tests": [
+        {
+          "name": "produces error when parent constructors are not called",
+          "line": 3,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "produces an error if additional arguments are passed",
+          "line": 22,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "produces an error if it calls a parent class without giving it self",
+          "line": 37,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "produces an error if its constructor doesn't return the object",
+          "line": 58,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "produces an error if its constructor has not been called",
+          "line": 69,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestCompareBuySimilar_spec.lua",
+      "loc": 303,
+      "describes": [
+        "Buy similar mod stat matching",
+        "addModEntries mod matching",
+        "popup URL controls"
+      ],
+      "testCount": 14,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        16,
+        33
+      ],
+      "engineSurface": [
+        "item",
+        "itemsTab"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Builds a trade search from an equipped item ('buy similar'). Needs the trade query layer.",
+      "tests": [
+        {
+          "name": "matches impossible escape mods as options",
+          "line": 6,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches thread of hope radius as an option",
+          "line": 34,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "combines mods that are the same stat",
+          "line": 54,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "is not case-sensitive",
+          "line": 84,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not combine implicit and explicit mods",
+          "line": 95,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not combine options",
+          "line": 108,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "rebuilds the URL when league and listed status change",
+          "line": 180,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves apostrophes in unique names",
+          "line": 197,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "removes a trailing unique ID without removing name punctuation",
+          "line": 208,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "trims whitespace after a unique name",
+          "line": 212,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "persists league choices by name for each realm",
+          "line": 216,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "encodes option values in the generated query",
+          "line": 238,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "inverts reduced stat bounds in the generated query",
+          "line": 258,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses a count group for ambiguous trade stats",
+          "line": 274,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestCompareTab_spec.lua",
+      "loc": 42,
+      "describes": [
+        "CompareTab"
+      ],
+      "testCount": 2,
+      "category": "ui",
+      "primaryUnblocker": 42,
+      "unblockedBy": [
+        24,
+        25,
+        42
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "skillsTab",
+        "uiControls"
+      ],
+      "outputKeys": [
+        "CombinedDPS",
+        "GemQuality"
+      ],
+      "modQueries": [],
+      "note": "The Compare tab's stat delta display.",
+      "tests": [
+        {
+          "name": "hides skill detail controls after removing the final comparison",
+          "line": 2,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reproduces matching-socket gem quality when comparing a build with itself",
+          "line": 25,
+          "outputKeys": [
+            "CombinedDPS",
+            "GemQuality"
+          ],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestCustomModControl_spec.lua",
+      "loc": 209,
+      "describes": [
+        "Custom modifier controls"
+      ],
+      "testCount": 10,
+      "category": "ui",
+      "primaryUnblocker": 36,
+      "unblockedBy": [
+        12,
+        14,
+        36
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "frameLoop",
+        "modParser",
+        "treeTab",
+        "uiControls"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "The custom-modifier picker control: search, ordering, tier collapsing. Its 'includes every supported tree modifier' test is really a coverage assertion over the mod parser.",
+      "tests": [
+        {
+          "name": "does not retain the modifier list focus after adding a mod",
+          "line": 33,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "collapses numeric tiers into a single entry and imports it",
+          "line": 46,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "orders modifiers alphabetically while ignoring numeric values",
+          "line": 63,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "clears the modifier search with its clear button",
+          "line": 80,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "disables adding when no modifiers match the search",
+          "line": 98,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "includes every supported tree modifier",
+          "line": 108,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only lists modifier text accepted by the parser",
+          "line": 145,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the expanded browser dimensions",
+          "line": 154,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "opens with the search field ready for typing",
+          "line": 166,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the mod group title as the calculation source name",
+          "line": 179,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestDefence_spec.lua",
+      "loc": 1727,
+      "describes": [
+        "TestDefence",
+        "Energy shield increased by spell block chance",
+        "enemy damage lessened by half of chill effect",
+        "damage taken from allies' life before you"
+      ],
+      "testCount": 43,
+      "category": "engine",
+      "primaryUnblocker": 26,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        26
+      ],
+      "engineSurface": [
+        "calcs",
+        "calcsTab",
+        "commonLib",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "modStore",
+        "passiveSpec",
+        "skillsTab"
+      ],
+      "outputKeys": [
+        "ActiveSpectreLimit",
+        "ActiveSpiderLimit",
+        "Armour",
+        "BasePhysicalDamageReduction",
+        "ChaosEnemyDamageMult",
+        "ChaosMaximumHitTaken",
+        "ColdEnemyDamageMult",
+        "ColdMaximumHitTaken",
+        "CurseEffectOnSelf",
+        "EffectiveBlockChance",
+        "EnergyShield",
+        "Evasion",
+        "FireEnemyDamageMult",
+        "FireMaximumHitTaken",
+        "FireResist",
+        "LightningEnemyDamageMult",
+        "LightningMaximumHitTaken",
+        "LightningResistOverCap",
+        "LightningResistTotal",
+        "MinionAllyDamageMitigation",
+        "NumberOfMitigatedDamagingHits",
+        "PhysicalDamageReduction",
+        "PhysicalEffectiveAppliedArmour",
+        "PhysicalEnemyDamageMult",
+        "PhysicalMaximumHitTaken",
+        "RadianceSentinelAllyDamageMitigation",
+        "SpellBlockChance",
+        "SpellBlockChanceOverCap",
+        "StoneGolemAllyDamageMitigation",
+        "TotalEHP",
+        "TotalMinionLife",
+        "TotalRadianceSentinelLife",
+        "TotalSpectreLife",
+        "TotalStoneGolemLife",
+        "TotalTotemLife",
+        "TotalVoidSpawnLife",
+        "TotemLife",
+        "VoidSpawnAllyDamageMitigation"
+      ],
+      "modQueries": [
+        "Multiplier:RaisedSpider",
+        "Multiplier:SummonedMinion",
+        "Speed"
+      ],
+      "note": "The largest engine spec: 43 tests over armour, evasion, block, resistances, maximum hit taken, recovery and EHP. CalcDefence, plus calcs.takenHitFromDamage from the calcs module surface.",
+      "tests": [
+        {
+          "name": "applies Consecrated Ground curse reduction to the player and minion",
+          "line": 20,
+          "outputKeys": [
+            "CurseEffectOnSelf",
+            "FireResist"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "no armour max hits",
+          "line": 40,
+          "outputKeys": [
+            "ChaosMaximumHitTaken",
+            "ColdMaximumHitTaken",
+            "FireMaximumHitTaken",
+            "LightningMaximumHitTaken",
+            "PhysicalMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies physical damage reduction overrides",
+          "line": 145,
+          "outputKeys": [
+            "Armour",
+            "BasePhysicalDamageReduction",
+            "PhysicalDamageReduction",
+            "PhysicalEffectiveAppliedArmour"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "progenesis and petrified blood",
+          "line": 165,
+          "outputKeys": [
+            "ChaosMaximumHitTaken",
+            "ColdMaximumHitTaken",
+            "FireMaximumHitTaken",
+            "LightningMaximumHitTaken",
+            "PhysicalMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "foulborn resistance conversion remains stable across recalculation",
+          "line": 395,
+          "outputKeys": [
+            "LightningResistOverCap",
+            "LightningResistTotal"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "ward chance to not break increases effective hit pool",
+          "line": 415,
+          "outputKeys": [
+            "PhysicalMaximumHitTaken",
+            "TotalEHP"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "small hits bypass unbroken ward",
+          "line": 437,
+          "outputKeys": [
+            "PhysicalMaximumHitTaken",
+            "TotalEHP"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "armoured max hits",
+          "line": 463,
+          "outputKeys": [
+            "ChaosMaximumHitTaken",
+            "ColdMaximumHitTaken",
+            "FireMaximumHitTaken",
+            "LightningMaximumHitTaken",
+            "PhysicalMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "energy shield increased by spell block chance if corresponding 'maximum es' flag is present",
+          "line": 564,
+          "outputKeys": [
+            "EnergyShield",
+            "SpellBlockChance",
+            "SpellBlockChanceOverCap"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "energy shield increased by spell block chance if corresponding 'maximum es' flag is present should be capped to max block",
+          "line": 580,
+          "outputKeys": [
+            "EnergyShield",
+            "SpellBlockChance",
+            "SpellBlockChanceOverCap"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "enemy damage lessened by half of chill effect if the corresponding conditions are fulfilled",
+          "line": 600,
+          "outputKeys": [
+            "ChaosEnemyDamageMult",
+            "ColdEnemyDamageMult",
+            "FireEnemyDamageMult",
+            "LightningEnemyDamageMult",
+            "PhysicalEnemyDamageMult"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "enemy damage is not lessened if the enemy is not chilled",
+          "line": 619,
+          "outputKeys": [
+            "ChaosEnemyDamageMult",
+            "ColdEnemyDamageMult",
+            "FireEnemyDamageMult",
+            "LightningEnemyDamageMult",
+            "PhysicalEnemyDamageMult"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "lessened enemy damage respects chill cap",
+          "line": 634,
+          "outputKeys": [
+            "ChaosEnemyDamageMult",
+            "ColdEnemyDamageMult",
+            "FireEnemyDamageMult",
+            "LightningEnemyDamageMult",
+            "PhysicalEnemyDamageMult"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "redirects damage to ",
+          "line": 661,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "calculates the Companionship minion's life automatically",
+          "line": 675,
+          "outputKeys": [
+            "TotalMinionLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "requires exactly one summoned minion for Companionship",
+          "line": 701,
+          "outputKeys": [
+            "MinionAllyDamageMitigation",
+            "TotalMinionLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "counts a minion without a limit for Companionship",
+          "line": 711,
+          "outputKeys": [
+            "MinionAllyDamageMitigation",
+            "TotalMinionLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "counts Companionship's minion outside Combat mode",
+          "line": 719,
+          "outputKeys": [
+            "MinionAllyDamageMitigation",
+            "TotalMinionLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "counts invulnerable Minions for Companionship's condition",
+          "line": 729,
+          "outputKeys": [
+            "MinionAllyDamageMitigation",
+            "TotalMinionLife"
+          ],
+          "modQueries": [
+            "Multiplier:SummonedMinion"
+          ]
+        },
+        {
+          "name": "keeps invulnerable minion limits available to limitStat",
+          "line": 739,
+          "outputKeys": [
+            "ActiveSpiderLimit"
+          ],
+          "modQueries": [
+            "Multiplier:RaisedSpider",
+            "Speed"
+          ]
+        },
+        {
+          "name": "counts the same Minion type from different skills separately",
+          "line": 760,
+          "outputKeys": [
+            "MinionAllyDamageMitigation"
+          ],
+          "modQueries": [
+            "Multiplier:SummonedMinion"
+          ]
+        },
+        {
+          "name": "counts Minions added by supports for Companionship's condition",
+          "line": 771,
+          "outputKeys": [
+            "MinionAllyDamageMitigation",
+            "TotalMinionLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "does not count hostile Penance Mark phantasms as your Minions",
+          "line": 779,
+          "outputKeys": [
+            "MinionAllyDamageMitigation",
+            "TotalMinionLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "shares Life when Companionship supports an ally with its own redirect",
+          "line": 789,
+          "outputKeys": [
+            "TotalMinionLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies Stone Golem of Safeguarding to melee hits",
+          "line": 808,
+          "outputKeys": [
+            "StoneGolemAllyDamageMitigation"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "does not apply Stone Golem of Safeguarding to non-melee hits",
+          "line": 829,
+          "outputKeys": [
+            "StoneGolemAllyDamageMitigation",
+            "TotalStoneGolemLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "includes support modifiers when the minion is not the main skill",
+          "line": 839,
+          "outputKeys": [
+            "TotalStoneGolemLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "keeps the Necromantic Aegis shield between calculator passes",
+          "line": 859,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "calculates Spectre life automatically and supports an override",
+          "line": 873,
+          "outputKeys": [
+            "ActiveSpectreLimit",
+            "TotalSpectreLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "combines different Spectres without depending on the first one's Life",
+          "line": 900,
+          "outputKeys": [
+            "TotalSpectreLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "calculates Totem life automatically",
+          "line": 920,
+          "outputKeys": [
+            "TotalTotemLife",
+            "TotemLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "calculates Vaal Rejuvenation Totem life automatically",
+          "line": 931,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "calculates Sentinel of Radiance life automatically",
+          "line": 945,
+          "outputKeys": [
+            "RadianceSentinelAllyDamageMitigation",
+            "TotalRadianceSentinelLife"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "calculates total Void Spawn life automatically",
+          "line": 955,
+          "outputKeys": [
+            "TotalVoidSpawnLife",
+            "VoidSpawnAllyDamageMitigation"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "handles a full damage redirect without an invalid max hit",
+          "line": 966,
+          "outputKeys": [
+            "PhysicalMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "drains multiple ally pools in a stable order",
+          "line": 976,
+          "outputKeys": [
+            "PhysicalMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "damage conversion max hits",
+          "line": 996,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "damage conversion to different size pools",
+          "line": 1080,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "energy shield bypass tests #pet",
+          "line": 1204,
+          "outputKeys": [
+            "ChaosMaximumHitTaken",
+            "FireMaximumHitTaken",
+            "LightningMaximumHitTaken",
+            "PhysicalMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Unbreakable + Iron Reflexes",
+          "line": 1342,
+          "outputKeys": [
+            "Armour",
+            "Evasion"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "MoM + EB",
+          "line": 1476,
+          "outputKeys": [
+            "ChaosMaximumHitTaken",
+            "FireMaximumHitTaken"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies permanent Avatar of Fire to conditional modifiers (issue #3062)",
+          "line": 1660,
+          "outputKeys": [
+            "Armour"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "limits EHP speedup when hit damage is delayed",
+          "line": 1685,
+          "outputKeys": [
+            "EffectiveBlockChance",
+            "NumberOfMitigatedDamagingHits",
+            "TotalEHP"
+          ],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestFoulborn_spec.lua",
+      "loc": 289,
+      "describes": [
+        "TestFoulborn"
+      ],
+      "testCount": 13,
+      "category": "domain",
+      "primaryUnblocker": 16,
+      "unblockedBy": [
+        14,
+        16,
+        19
+      ],
+      "engineSurface": [
+        "item"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Foulborn mod transformation (ModFoulbornMap) applied through Item parsing; asserts on resolved mod ids, not on calc output.",
+      "tests": [
+        {
+          "name": "marks convertible mods with their foulborn transformation",
+          "line": 42,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "offers convertible mods in the item modifier controls",
+          "line": 52,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not mark non-convertible mods",
+          "line": 64,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "converts the mod line to its foulborn text when activated",
+          "line": 72,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "flags the item as foulborn and prefixes the title and name once a mod is mutated",
+          "line": 86,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps the mutated state through BuildRaw",
+          "line": 104,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reverts to the base mod when deactivated",
+          "line": 122,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only converts the activated mod when several are convertible",
+          "line": 135,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "leaves items without a foulborn mapping untouched",
+          "line": 145,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "expands a single mod into two lines when a 1->2 foulborn mod is activated",
+          "line": 189,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "collapses the expanded lines back to the base mod when deactivated",
+          "line": 220,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps Kitava's Thirst transformations reversible",
+          "line": 235,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps Foulborn lines separate from unsupported modifiers",
+          "line": 260,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestGemSelectControl_spec.lua",
+      "loc": 73,
+      "describes": [
+        "GemSelectControl"
+      ],
+      "testCount": 3,
+      "category": "ui",
+      "primaryUnblocker": 36,
+      "unblockedBy": [
+        36,
+        37
+      ],
+      "engineSurface": [],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Gem dropdown: filtering, sorting by DPS, support-gem type filter. Constructed against a stub skillsTab, so it needs only the widget.",
+      "tests": [
+        {
+          "name": "keeps the selected gem aligned with a lazy DPS sort",
+          "line": 33,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "restores and releases focus on a cancelled outside click",
+          "line": 43,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "allows click-through after selecting a gem",
+          "line": 58,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestGemSocketQuality_spec.lua",
+      "loc": 230,
+      "describes": [
+        "TestGemSocketQuality"
+      ],
+      "testCount": 13,
+      "category": "engine",
+      "primaryUnblocker": 23,
+      "unblockedBy": [
+        22,
+        23,
+        37
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "skillsTab",
+        "uiControls"
+      ],
+      "outputKeys": [
+        "AreaOfEffectRadius",
+        "GemQuality"
+      ],
+      "modQueries": [],
+      "note": "Gem quality variants and socket colour/link handling feeding into the active skill. Straddles CalcActiveSkill and the Skills tab controls.",
+      "tests": [
+        {
+          "name": "grants +10% quality to a gem in a matching colour socket",
+          "line": 26,
+          "outputKeys": [
+            "GemQuality"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "adds the socket bonus on top of the gem's own quality",
+          "line": 39,
+          "outputKeys": [
+            "GemQuality"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "grants no bonus to a gem in a mismatched colour socket",
+          "line": 47,
+          "outputKeys": [
+            "GemQuality"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies the socket quality bonus to the skill's quality-scaled stats",
+          "line": 59,
+          "outputKeys": [
+            "AreaOfEffectRadius"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "grants no bonus to a white/colourless gem",
+          "line": 79,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "adds quality when an item is equipped and removes it when unequipped",
+          "line": 88,
+          "outputKeys": [
+            "GemQuality"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "always grants the bonus with Dialla's 'always matches' mod",
+          "line": 104,
+          "outputKeys": [
+            "GemQuality"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "respects socket order across split groups on one item",
+          "line": 119,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not grant the bonus when split order breaks the match",
+          "line": 135,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Optimise Sockets recolours an item to match its assigned gems",
+          "line": 146,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Optimise Sockets does not exceed the item's socket limit",
+          "line": 164,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Optimise Sockets preserves abyssal sockets and stays within the limit",
+          "line": 178,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies the socket bonus to a support gem's effective quality",
+          "line": 207,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestImpale_spec.lua",
+      "loc": 343,
+      "describes": [
+        "TestAttacks"
+      ],
+      "testCount": 8,
+      "category": "engine",
+      "primaryUnblocker": 25,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "skillsTab"
+      ],
+      "outputKeys": [
+        "ImpaleDPS",
+        "ImpaleDuration",
+        "MainHand",
+        "OffHand",
+        "impaleStoredHitAvg"
+      ],
+      "modQueries": [],
+      "note": "Impale stacking, effect and DPS contribution.",
+      "tests": [
+        {
+          "name": "basic impale",
+          "line": 15,
+          "outputKeys": [
+            "ImpaleDPS",
+            "MainHand",
+            "impaleStoredHitAvg"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "impale with zero duration has zero dps",
+          "line": 61,
+          "outputKeys": [
+            "ImpaleDPS",
+            "ImpaleDuration"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "impale with inc damage taken",
+          "line": 75,
+          "outputKeys": [
+            "ImpaleDPS",
+            "MainHand",
+            "impaleStoredHitAvg"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "impale with physical reduction",
+          "line": 124,
+          "outputKeys": [
+            "ImpaleDPS",
+            "MainHand",
+            "impaleStoredHitAvg"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "impale with physical reduction and inc damage taken",
+          "line": 160,
+          "outputKeys": [
+            "ImpaleDPS",
+            "MainHand",
+            "impaleStoredHitAvg"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "impale dual wield",
+          "line": 198,
+          "outputKeys": [
+            "ImpaleDPS",
+            "MainHand",
+            "OffHand",
+            "impaleStoredHitAvg"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "impale with extra mods",
+          "line": 269,
+          "outputKeys": [
+            "ImpaleDPS",
+            "MainHand",
+            "impaleStoredHitAvg"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "impale dual wield simultaneous attack",
+          "line": 301,
+          "outputKeys": [
+            "ImpaleDPS",
+            "MainHand",
+            "OffHand"
+          ],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestImport_spec.lua",
+      "loc": 204,
+      "describes": [
+        "TestImport"
+      ],
+      "testCount": 6,
+      "category": "ui",
+      "primaryUnblocker": 42,
+      "unblockedBy": [
+        16,
+        18,
+        42
+      ],
+      "engineSurface": [
+        "configTab",
+        "frameLoop",
+        "importTab",
+        "item",
+        "itemsTab",
+        "passiveSpec",
+        "tradeHttp",
+        "uiControls"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Character import: passive tree, items and skills from a PoE API payload.",
+      "tests": [
+        {
+          "name": "imports with correct tree",
+          "line": 15,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves quest choices only for account-name imports",
+          "line": 45,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "imports with correct jewels",
+          "line": 79,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "imports modifier flags from the 3.29 item API",
+          "line": 110,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "deletes old jewels",
+          "line": 185,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "doesn't delete old jewels",
+          "line": 193,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestImportReimport_spec.lua",
+      "loc": 257,
+      "describes": [
+        "TestImportReimport"
+      ],
+      "testCount": 10,
+      "category": "ui",
+      "primaryUnblocker": 42,
+      "unblockedBy": [
+        16,
+        42
+      ],
+      "engineSurface": [
+        "frameLoop",
+        "importTab",
+        "itemsTab",
+        "skillsTab"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Re-importing over an existing build: what is preserved and what is replaced.",
+      "tests": [
+        {
+          "name": "preserves full DPS state and manually disabled gems when reimporting items and skills",
+          "line": 98,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves active skill count when reimporting items and skills",
+          "line": 129,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves full DPS state and disabled gems when reimporting with deleted equipment",
+          "line": 156,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves two socket groups when reimporting items and skills",
+          "line": 184,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves skill part selection when reimporting items and skills",
+          "line": 231,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves stage count when reimporting items and skills",
+          "line": 235,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves mine count when reimporting items and skills",
+          "line": 239,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves minion skill when reimporting items and skills",
+          "line": 243,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves minion type selection when reimporting items and skills",
+          "line": 247,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves minion item set selection when reimporting items and skills",
+          "line": 251,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestItemDBControl_spec.lua",
+      "loc": 118,
+      "describes": [
+        "ItemDBControl"
+      ],
+      "testCount": 3,
+      "category": "ui",
+      "primaryUnblocker": 40,
+      "unblockedBy": [
+        16,
+        40
+      ],
+      "engineSurface": [
+        "item",
+        "uiControls"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "The unique/rare item database list control.",
+      "tests": [
+        {
+          "name": "sorts lower-is-better stats below zero",
+          "line": 12,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "searches Foulborn modifier text without case sensitivity",
+          "line": 65,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "releases focus after opening an item with a double click",
+          "line": 89,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestItemListControl_spec.lua",
+      "loc": 204,
+      "describes": [
+        "ItemListControl"
+      ],
+      "testCount": 8,
+      "category": "ui",
+      "primaryUnblocker": 40,
+      "unblockedBy": [
+        16,
+        40
+      ],
+      "engineSurface": [
+        "item",
+        "uiControls"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "The equipped-item list control: ordering, selection, deletion.",
+      "tests": [
+        {
+          "name": "only shows items from the active item set and passive tree",
+          "line": 69,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the selected item set and passive tree for named loadouts",
+          "line": 79,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches linked sets and old passive tree display names",
+          "line": 89,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "clears hidden selections and preserves visible selections by item ID",
+          "line": 109,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only allows internal reordering in the unfiltered item list",
+          "line": 129,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "refreshes filter options when loadouts are renamed without a new output revision",
+          "line": 147,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "clears the canonical item order when deleting all from a filtered list",
+          "line": 164,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "releases focus after opening an item with a double click",
+          "line": 179,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestItemMods_spec.lua",
+      "loc": 1107,
+      "describes": [
+        "TetsItemMods"
+      ],
+      "testCount": 39,
+      "category": "domain",
+      "primaryUnblocker": 16,
+      "unblockedBy": [
+        14,
+        16,
+        24,
+        25,
+        40
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "modStore",
+        "skillsTab",
+        "uiControls"
+      ],
+      "outputKeys": [
+        "Armour",
+        "AverageDamage",
+        "CritMultiplier",
+        "ElusiveEffectMod",
+        "EnduranceChargesMax",
+        "EnergyShield",
+        "EnergyShieldRecoup",
+        "FrenzyChargesMax",
+        "Int",
+        "Life",
+        "LifeRecoup",
+        "LightningEffMult",
+        "LightningResist",
+        "ManaRecoup",
+        "PhysicalEnergyShieldRecoup",
+        "PhysicalLifeRecoup",
+        "PhysicalManaRecoup",
+        "TotalDPS"
+      ],
+      "modQueries": [
+        "LightningMin",
+        "PhysicalDamageGainAsFire",
+        "Speed"
+      ],
+      "note": "Item mod machinery: variant and version groups, mod ranges, socketed-gem mods, crafted and eldritch implicits. Item-model heavy; a minority of tests then assert on calc output.",
+      "tests": [
+        {
+          "name": "shows versioned reusable variant groups",
+          "line": 10,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Dialla's socket mods",
+          "line": 47,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Malachai's Artifice socket mods",
+          "line": 78,
+          "outputKeys": [
+            "LightningResist"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "caps socketed gem multipliers in gem order",
+          "line": 107,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Doomsower vaal pact and extra phys as fire",
+          "line": 119,
+          "outputKeys": [],
+          "modQueries": [
+            "PhysicalDamageGainAsFire"
+          ]
+        },
+        {
+          "name": "Varunastra works with nightblade",
+          "line": 155,
+          "outputKeys": [
+            "CritMultiplier"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Runegraft of the Agile affects average Elusive effect",
+          "line": 187,
+          "outputKeys": [
+            "ElusiveEffectMod"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Varunastra works with close combat support",
+          "line": 228,
+          "outputKeys": [
+            "TotalDPS"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Kalandra's Touch mod copy",
+          "line": 265,
+          "outputKeys": [
+            "Int"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Kalandra's Touch influence copy",
+          "line": 291,
+          "outputKeys": [
+            "AverageDamage"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Both slots mod (evasion and es mastery)",
+          "line": 338,
+          "outputKeys": [
+            "EnergyShield"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Both slots explicit mod with mixed mod rings (evasion and es mastery)",
+          "line": 400,
+          "outputKeys": [
+            "EnergyShield"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Both slots explicit mod (evasion and es mastery)",
+          "line": 462,
+          "outputKeys": [
+            "EnergyShield"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Both slots explicit mod no rings (evasion and es mastery)",
+          "line": 531,
+          "outputKeys": [
+            "EnergyShield"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "mod if no mod on x slot",
+          "line": 565,
+          "outputKeys": [
+            "Life"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "globalLimit mods",
+          "line": 603,
+          "outputKeys": [
+            "Armour"
+          ],
+          "modQueries": [
+            "Speed"
+          ]
+        },
+        {
+          "name": "Heralds apply exposure with Heraldry",
+          "line": 647,
+          "outputKeys": [
+            "LightningEffMult"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Enemy self curse effect",
+          "line": 664,
+          "outputKeys": [
+            "LightningEffMult"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Max charges with conditional mod",
+          "line": 679,
+          "outputKeys": [
+            "EnduranceChargesMax",
+            "FrenzyChargesMax"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "adds life recoup to energy shield recoup",
+          "line": 706,
+          "outputKeys": [
+            "EnergyShieldRecoup",
+            "LifeRecoup",
+            "PhysicalEnergyShieldRecoup",
+            "PhysicalLifeRecoup"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "supports Baleful Dominion recoup modifiers",
+          "line": 721,
+          "outputKeys": [
+            "LifeRecoup",
+            "ManaRecoup",
+            "PhysicalLifeRecoup",
+            "PhysicalManaRecoup"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "crafts modifiers from supported bases on rare-like uniques",
+          "line": 741,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the item base for rare-like modifier eligibility by default",
+          "line": 781,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps modifier metadata on duplicate variant tooltip lines",
+          "line": 800,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not sort cluster jewel modifiers when the sorting control is hidden",
+          "line": 827,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows custom modifier controls when affix crafting is hidden",
+          "line": 864,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "hides custom modifier controls after saving the display item",
+          "line": 882,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows affix controls for items crafted in Path of Building",
+          "line": 905,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "sorts crafted modifier replacements without retaining the selected modifier",
+          "line": 925,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows a fallback tooltip when an item's base is no longer supported",
+          "line": 962,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "ExtraSupport marked appliesToGrantedSkills supports an item granted skill",
+          "line": 1005,
+          "outputKeys": [],
+          "modQueries": [
+            "LightningMin"
+          ]
+        },
+        {
+          "name": "ExtraSupport marked appliesToGrantedSkills still supports a socketed gem",
+          "line": 1016,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "ExtraSupport marked appliesToGrantedSkills does not cross slots",
+          "line": 1027,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "plain ExtraSupport does not support an item granted skill",
+          "line": 1038,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "ExtraSupport marked appliesToGrantedSkills supports a tree granted skill",
+          "line": 1050,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies a tree ExtraSupport once when two items grant it",
+          "line": 1062,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "tree ExtraSupport does not support an item granted skill",
+          "line": 1073,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "tree ExtraSupport does not support a socketed gem",
+          "line": 1083,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies a tree ExtraSupport once when another tree skill shares the slot",
+          "line": 1096,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestItemParse_spec.lua",
+      "loc": 1402,
+      "describes": [
+        "TestItemParse",
+        "TestAdvancedItemParse #item",
+        "mod magnitude scaling"
+      ],
+      "testCount": 88,
+      "category": "domain",
+      "primaryUnblocker": 16,
+      "unblockedBy": [
+        14,
+        15,
+        16
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "commonLib",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "modStore"
+      ],
+      "outputKeys": [],
+      "modQueries": [
+        "ChaosDamage",
+        "ChaosResist",
+        "CritChance",
+        "Damage"
+      ],
+      "note": "88 tests over item text parsing -- the single densest specification of the item format in the repository, and the natural companion to the ModCache oracle (#6). Needs no calc engine.",
+      "tests": [
+        {
+          "name": "Rarity",
+          "line": 7,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Superior/Synthesised",
+          "line": 20,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "adds talisman base mods as enchants",
+          "line": 29,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Two-Toned Boots",
+          "line": 57,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Magic Two-Toned Boots",
+          "line": 68,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Title",
+          "line": 98,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Unique ID",
+          "line": 109,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Item Level",
+          "line": 114,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Quality",
+          "line": 119,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Sockets",
+          "line": 126,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Jewel",
+          "line": 138,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Variant name",
+          "line": 144,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Versioned grouped variants",
+          "line": 149,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Talisman Tier",
+          "line": 204,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Defence",
+          "line": 209,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Defence BasePercentile",
+          "line": 222,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Requires Level",
+          "line": 233,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Alt Variant",
+          "line": 242,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Prefix/Suffix",
+          "line": 269,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Implicits",
+          "line": 280,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "League",
+          "line": 294,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Source",
+          "line": 299,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Note",
+          "line": 304,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Attribute Requirements",
+          "line": 309,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Requires Class",
+          "line": 318,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Requires Class variant",
+          "line": 325,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Influence",
+          "line": 336,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "short flags",
+          "line": 355,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "long flags",
+          "line": 372,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "tags",
+          "line": 394,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "ignores disabled modifiers in item conditions",
+          "line": 399,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "variant",
+          "line": 404,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "range",
+          "line": 416,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "crafted",
+          "line": 422,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "crucible",
+          "line": 429,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "custom",
+          "line": 436,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "eater",
+          "line": 441,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "enchant",
+          "line": 446,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "exarch",
+          "line": 454,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "fractured",
+          "line": 459,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "implicit",
+          "line": 466,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "scourge",
+          "line": 471,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "synthesis",
+          "line": 478,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "unscalable",
+          "line": 483,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "multiple bases",
+          "line": 490,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses text without armour value then changes quality and has correct final armour",
+          "line": 512,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "magic item",
+          "line": 525,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Energy Blade",
+          "line": 539,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Flask buff",
+          "line": 554,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses to craft",
+          "line": 577,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses correct range",
+          "line": 592,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses multi-line mod",
+          "line": 601,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "resets linePrefix",
+          "line": 612,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "resets linePostfix",
+          "line": 623,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses vaaled catalyst",
+          "line": 633,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses vaaled catalyst within range",
+          "line": 646,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "doesn't scale unscalable",
+          "line": 659,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "correctly matches conqueror mod",
+          "line": 668,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses enchant correctly #enchant",
+          "line": 679,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses enchant with tags correctly #enchant",
+          "line": 687,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses junk",
+          "line": 696,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses allocated Crucible passive skills from advanced copy",
+          "line": 765,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "ignores attribute requirements from socketed gems",
+          "line": 784,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "orders fractured mods first and crafted mods last",
+          "line": 803,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches same-name affixes using their advanced-copy ranges",
+          "line": 828,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "filters flask base properties and parses fixed-value advanced rolls",
+          "line": 846,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves rolls from large advanced-copy ranges",
+          "line": 872,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves independently rolled values on the same modifier line",
+          "line": 889,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "orders advanced-copy unique modifiers by their database stat order",
+          "line": 904,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps the selected value from advanced-copy enum ranges",
+          "line": 933,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses punctuated enum and descending numeric ranges",
+          "line": 948,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses Memory Strands as an item property",
+          "line": 971,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves cluster jewel enchants from advanced copy",
+          "line": 992,
+          "outputKeys": [],
+          "modQueries": [
+            "ChaosDamage",
+            "ChaosResist",
+            "CritChance",
+            "Damage"
+          ]
+        },
+        {
+          "name": "scales advanced-copy Simplex Amulet explicit mods on the first parse",
+          "line": 1049,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "scales matching implicit mods by modifier magnitude",
+          "line": 1094,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not apply disabled modifier magnitude",
+          "line": 1112,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "scales properly using old Eyes of the Greatwolf line",
+          "line": 1124,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "scales properly using new Eyes of the Greatwolf line",
+          "line": 1142,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not rescale old format (baked) copies",
+          "line": 1159,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only scales mods that share the magnitude mod's tags",
+          "line": 1177,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only scales the modifier type named by the magnitude mod",
+          "line": 1228,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "handles explicit physical and chaos modifier magnitudes",
+          "line": 1245,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not scale unscalable modifiers",
+          "line": 1261,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reduces the modifier magnitude correctly",
+          "line": 1276,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "scales only prefixes for increased effect of prefixes",
+          "line": 1292,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "scales only prefixes for increased effect of prefixes for advanced copy format",
+          "line": 1343,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not apply scaling twice when saving and loading",
+          "line": 1353,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not scale modifiers that grant skills",
+          "line": 1361,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestItemTools_spec.lua",
+      "loc": 123,
+      "describes": [
+        "TestItemTools"
+      ],
+      "testCount": 4,
+      "category": "domain",
+      "primaryUnblocker": 16,
+      "unblockedBy": [
+        16
+      ],
+      "engineSurface": [
+        "commonLib",
+        "item"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "itemLib range application: `(10-20)` interpolation, negative ranges, multiple ranges per line, quality scaling. Small, pure, and a direct test of the rounding the ticket-02 layer provides.",
+      "tests": [
+        {
+          "name": "detects scalability after resolving ranges",
+          "line": 55,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "formats corrupted fixed-value modifiers",
+          "line": 60,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the displayed item slot for anoint comparison tooltips",
+          "line": 65,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not report missing anoints for non-anointable talisman bases",
+          "line": 103,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestMinionAttackTime_spec.lua",
+      "loc": 75,
+      "describes": [
+        "TestMinionAttackTime"
+      ],
+      "testCount": 3,
+      "category": "engine",
+      "primaryUnblocker": 25,
+      "unblockedBy": [
+        22,
+        23,
+        25
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "skillsTab"
+      ],
+      "outputKeys": [
+        "Minion"
+      ],
+      "modQueries": [],
+      "note": "Minion attack time derivation from the minion's own base and supports.",
+      "tests": [
+        {
+          "name": "uses the parent main-hand attack time without changing minion base damage",
+          "line": 26,
+          "outputKeys": [
+            "Minion"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "keeps damage unchanged when minion base damage ignores attack speed",
+          "line": 41,
+          "outputKeys": [
+            "Minion"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "does not change spectre base attack time",
+          "line": 61,
+          "outputKeys": [
+            "Minion"
+          ],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestOffence_spec.lua",
+      "loc": 356,
+      "describes": [
+        "TestOffence"
+      ],
+      "testCount": 13,
+      "category": "engine",
+      "primaryUnblocker": 25,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "commonLib",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "modStore",
+        "skillsTab"
+      ],
+      "outputKeys": [
+        "AreaOfEffectMod",
+        "AverageDamage",
+        "ColdMin",
+        "CurrentChill",
+        "LightningMax",
+        "LightningMin",
+        "MainHand",
+        "PhysicalMin",
+        "PhysicalMinBase"
+      ],
+      "modQueries": [
+        "DealNoChaos",
+        "DealNoCold",
+        "DealNoLightning",
+        "MaxColdDamage",
+        "MaxLightningDamage",
+        "MinPhysicalDamage",
+        "Multiplier:PermanentMinion",
+        "Multiplier:SummonedMinion"
+      ],
+      "note": "Core offence: average damage, area of effect rounding, conversion, minion counting. The ticket's own style reference.",
+      "tests": [
+        {
+          "name": "counts only permanent minions for Communion",
+          "line": 16,
+          "outputKeys": [
+            "PhysicalMin"
+          ],
+          "modQueries": [
+            "Multiplier:PermanentMinion",
+            "Multiplier:SummonedMinion"
+          ]
+        },
+        {
+          "name": "does not apply arrow damage modifiers to Fireball",
+          "line": 36,
+          "outputKeys": [
+            "AverageDamage"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "rounds area modifiers before calculating radius",
+          "line": 53,
+          "outputKeys": [
+            "AreaOfEffectMod"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies final skill radius modifiers after area scaling",
+          "line": 66,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "rounds each scaled damage conversion to a whole percent",
+          "line": 90,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "rounds damage after the final step of a conversion path",
+          "line": 107,
+          "outputKeys": [
+            "ColdMin",
+            "PhysicalMinBase"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "parses more/less/increased/reduced minimum and maximum damage of every type",
+          "line": 126,
+          "outputKeys": [],
+          "modQueries": [
+            "MaxColdDamage",
+            "MaxLightningDamage",
+            "MinPhysicalDamage"
+          ]
+        },
+        {
+          "name": "applies min/max damage mods to an actual skill in CalcOffence",
+          "line": 163,
+          "outputKeys": [
+            "LightningMax",
+            "LightningMin"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies minimum and maximum attack damage mods",
+          "line": 199,
+          "outputKeys": [
+            "MainHand"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "parses universal cannot deal/deal no non-<type> damage for player and minions",
+          "line": 224,
+          "outputKeys": [
+            "LightningMax"
+          ],
+          "modQueries": [
+            "DealNoChaos",
+            "DealNoLightning"
+          ]
+        },
+        {
+          "name": "keeps deal no non-elemental damage as its own literal",
+          "line": 262,
+          "outputKeys": [],
+          "modQueries": [
+            "DealNoChaos",
+            "DealNoCold"
+          ]
+        },
+        {
+          "name": "enemies in your chilling areas take damage increased by the area's chill effect",
+          "line": 279,
+          "outputKeys": [
+            "AverageDamage",
+            "CurrentChill"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "supports base ",
+          "line": 328,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestPassiveTreeView_spec.lua",
+      "loc": 117,
+      "describes": [
+        "PassiveTreeView jewel comparison"
+      ],
+      "testCount": 4,
+      "category": "ui",
+      "primaryUnblocker": 41,
+      "unblockedBy": [
+        38,
+        41
+      ],
+      "engineSurface": [
+        "treeTab"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Tree view jewel comparison tooltips: which jewel is considered changed, which tooltip is shown.",
+      "tests": [
+        {
+          "name": "matches jewels by their complete raw representation",
+          "line": 30,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "marks same-name jewels with different variants as changed",
+          "line": 46,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows both full jewel tooltips when allocated socket jewels differ",
+          "line": 62,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows the compared jewel tooltip when only the compared socket is allocated",
+          "line": 93,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestPoEAPIAuth_spec.lua",
+      "loc": 102,
+      "describes": [
+        "PoEAPI auth"
+      ],
+      "testCount": 3,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        33
+      ],
+      "engineSurface": [
+        "tradeHttp"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "PoE OAuth PKCE flow.",
+      "tests": [
+        {
+          "name": "passes token exchange errors to the auth callback #auth",
+          "line": 19,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reports OAuth state mismatches without exchanging a token",
+          "line": 46,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "stays usable after an error",
+          "line": 68,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestPowerReport_spec.lua",
+      "loc": 39,
+      "describes": [
+        "PowerReportListControl"
+      ],
+      "testCount": 2,
+      "category": "ui",
+      "primaryUnblocker": 36,
+      "unblockedBy": [
+        36,
+        41
+      ],
+      "engineSurface": [
+        "commonLib"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "PowerReportListControl filtering (allocated / unallocated / cluster). Pure list logic against a hand-built list; portable as soon as the widget exists.",
+      "tests": [
+        {
+          "name": "Show Unallocated excludes allocated nodes",
+          "line": 19,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Show Allocated includes allocated nodes",
+          "line": 29,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestRadiusJewelStatDiff_spec.lua",
+      "loc": 604,
+      "describes": [
+        "TestRadiusJewelStatDiff"
+      ],
+      "testCount": 11,
+      "category": "engine",
+      "primaryUnblocker": 24,
+      "unblockedBy": [
+        16,
+        18,
+        24
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "passiveSpec"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Radius jewels (Lethal Pride, Thread of Hope) evaluated through calcsTab:GetMiscCalculator's removeNodes/addNodes comparison path. Needs CalcPerform's incremental recalculation, not just a full calc.",
+      "tests": [
+        {
+          "name": "Lethal Pride item parses conqueredBy correctly",
+          "line": 320,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Thread of Hope item parses intuitiveLeapLike correctly",
+          "line": 331,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "calcFunc removeNodes/addNodes changes output for allocated nodes",
+          "line": 340,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "timeless jewel comparison: removeNodes/addNodes on conquered nodes changes output",
+          "line": 356,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Thread of Hope enables allocation of unconnected nodes",
+          "line": 381,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Thread of Hope removal comparison removes dependent nodes via override",
+          "line": 409,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "intuitiveLeapLike replacement comparison removes nodes unsupported by the new jewel",
+          "line": 438,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "intuitiveLeapLike removal comparison keeps nodes supported by another radius jewel",
+          "line": 471,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Impossible Escape parses and targets a keystone correctly",
+          "line": 528,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Impossible Escape removal comparison removes dependent nodes via override",
+          "line": 540,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "AddItemTooltip emits a remove-comparison block for an equipped Timeless jewel",
+          "line": 585,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestRareLike_spec.lua",
+      "loc": 89,
+      "describes": [
+        "Veiled unique affix pools"
+      ],
+      "testCount": 6,
+      "category": "domain",
+      "primaryUnblocker": 16,
+      "unblockedBy": [
+        16,
+        19
+      ],
+      "engineSurface": [
+        "item"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Which affixes a veiled/rare-like unique may roll (Item:CanHaveMod against the affix pools).",
+      "tests": [
+        {
+          "name": "includes weapon-legal Catarina veiled mods on Cane of Kulemak",
+          "line": 34,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "excludes weapon-illegal Catarina veiled mods from Cane of Kulemak",
+          "line": 44,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only offers the base veiled pool on Paradoxica",
+          "line": 52,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "offers weapon-legal signature veiled mods on Replica Paradoxica",
+          "line": 61,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "offers Chosen, Catarina's, and of the Order mods on The Queen's Hunger",
+          "line": 71,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only offers attainable modifiers on That Which Was Taken",
+          "line": 80,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestSearchHost_spec.lua",
+      "loc": 14,
+      "describes": [
+        "SearchHost"
+      ],
+      "testCount": 1,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        33
+      ],
+      "engineSurface": [
+        "tradeHttp"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Trade search host selection.",
+      "tests": [
+        {
+          "name": "merges all overlapping ranges when word order is ignored",
+          "line": 2,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestSkills_spec.lua",
+      "loc": 731,
+      "describes": [
+        "TestSkills"
+      ],
+      "testCount": 40,
+      "category": "engine",
+      "primaryUnblocker": 23,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        37
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "commonLib",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "modStore",
+        "passiveSpec",
+        "skillsTab",
+        "uiControls"
+      ],
+      "outputKeys": [
+        "AverageDamage",
+        "BeidatAdditionalProjectiles",
+        "BrandTicks",
+        "CombinedDPS",
+        "CurrentChill",
+        "DurationTertiary",
+        "ESCost",
+        "FireEffMult",
+        "LifeCost",
+        "LyciaUpTimeRatio",
+        "ManaCost",
+        "MirageDPS",
+        "SkillDPSMultiplier",
+        "SkillTriggerRate",
+        "SoulGainPreventionDuration",
+        "Speed",
+        "TotalDPS",
+        "TotalDot",
+        "TotalDotDPS"
+      ],
+      "modQueries": [
+        "BaseFlagTest",
+        "ChaosMin",
+        "ColdPenetration",
+        "CooldownRecovery",
+        "EnemyChillEffect",
+        "FireResist",
+        "LightningMin",
+        "LightningResist",
+        "Multiplier:BladeBlastStage",
+        "Multiplier:BladeBlastStageAfterFirst",
+        "Multiplier:BlightMaxStages",
+        "Multiplier:WintertideBrandMaxStages",
+        "NegatedBaseFlagTest"
+      ],
+      "note": "40 tests over gem setup: supports applying or not, skill parts, minion skills, triggered links, socket group enablement. CalcActiveSkill is the centre of gravity.",
+      "tests": [
+        {
+          "name": "adds envy, ensures +1 level keeps level 25 Envy",
+          "line": 10,
+          "outputKeys": [],
+          "modQueries": [
+            "ChaosMin"
+          ]
+        },
+        {
+          "name": "applies Aspect of the Brine King's chilling aura",
+          "line": 26,
+          "outputKeys": [
+            "CurrentChill"
+          ],
+          "modQueries": [
+            "ColdPenetration",
+            "EnemyChillEffect"
+          ]
+        },
+        {
+          "name": "Test Mirage Archer using triggered skill",
+          "line": 39,
+          "outputKeys": [
+            "MirageDPS",
+            "SkillTriggerRate",
+            "Speed"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Test Sacred wisps using current skill",
+          "line": 70,
+          "outputKeys": [
+            "MirageDPS"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "checks equipped weapon types for support-granted attacks",
+          "line": 93,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps forced mana reservations on mana",
+          "line": 116,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Test Scorching ray applying exposure at max stages",
+          "line": 139,
+          "outputKeys": [],
+          "modQueries": [
+            "FireResist"
+          ]
+        },
+        {
+          "name": "Defaults Blade Blast to the skill's blade cap",
+          "line": 162,
+          "outputKeys": [
+            "AverageDamage",
+            "CombinedDPS",
+            "TotalDPS"
+          ],
+          "modQueries": [
+            "Multiplier:BladeBlastStage",
+            "Multiplier:BladeBlastStageAfterFirst"
+          ]
+        },
+        {
+          "name": "uses enemy radius when calculating Ball Lightning hits",
+          "line": 194,
+          "outputKeys": [
+            "SkillDPSMultiplier"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Test Adrenaline affecting blight max stage count",
+          "line": 217,
+          "outputKeys": [],
+          "modQueries": [
+            "Multiplier:BlightMaxStages"
+          ]
+        },
+        {
+          "name": "calculates added resistance from heralds even when using scornful herald",
+          "line": 236,
+          "outputKeys": [],
+          "modQueries": [
+            "LightningMin",
+            "LightningResist"
+          ]
+        },
+        {
+          "name": "calculates Wintertide Brand average damage for attached brands and Wintertide's End",
+          "line": 251,
+          "outputKeys": [
+            "BrandTicks",
+            "DurationTertiary"
+          ],
+          "modQueries": [
+            "Multiplier:WintertideBrandMaxStages"
+          ]
+        },
+        {
+          "name": "multiplies Brand DPS by the attached Brand count",
+          "line": 299,
+          "outputKeys": [
+            "TotalDPS"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "multiplies manually staged Brand damage over time by the attached Brand count",
+          "line": 312,
+          "outputKeys": [
+            "TotalDot"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "caps total Brand Recall Cooldown Recovery from multiple Chip Away notables at 40%",
+          "line": 331,
+          "outputKeys": [],
+          "modQueries": [
+            "CooldownRecovery"
+          ]
+        },
+        {
+          "name": "applies a single Chip Away notable per active Brand",
+          "line": 345,
+          "outputKeys": [],
+          "modQueries": [
+            "CooldownRecovery"
+          ]
+        },
+        {
+          "name": "counts support gem brand limit increases in the active Brand count",
+          "line": 355,
+          "outputKeys": [],
+          "modQueries": [
+            "CooldownRecovery"
+          ]
+        },
+        {
+          "name": "uses the highest brand limit across multiple brand skills for the active Brand count",
+          "line": 365,
+          "outputKeys": [],
+          "modQueries": [
+            "CooldownRecovery"
+          ]
+        },
+        {
+          "name": "averages inverted elemental resistance after penetration",
+          "line": 376,
+          "outputKeys": [
+            "FireEffMult"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Test cost efficiency modifiers",
+          "line": 391,
+          "outputKeys": [
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Test cost efficiency with cost modifiers",
+          "line": 428,
+          "outputKeys": [
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Test flat cost is added after cost efficiency",
+          "line": 441,
+          "outputKeys": [
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Test flat cost is added after cost efficiency for life costs",
+          "line": 454,
+          "outputKeys": [
+            "LifeCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "converts and rounds flat mana cost separately from base cost",
+          "line": 466,
+          "outputKeys": [
+            "LifeCost",
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "moves flat mana cost when all costs are converted",
+          "line": 476,
+          "outputKeys": [
+            "LifeCost",
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "does not move reduced flat mana cost to life",
+          "line": 486,
+          "outputKeys": [
+            "LifeCost",
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "does not partially convert reduced flat mana cost to life",
+          "line": 496,
+          "outputKeys": [
+            "LifeCost",
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Test flat cost is added after cost efficiency for energy shield costs",
+          "line": 506,
+          "outputKeys": [
+            "ESCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "moves flat mana cost to energy shield with the base cost",
+          "line": 518,
+          "outputKeys": [
+            "ESCost",
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "does not move reduced flat mana cost to energy shield",
+          "line": 528,
+          "outputKeys": [
+            "ESCost",
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "only grants payable cost damage when the full cost can be paid",
+          "line": 538,
+          "outputKeys": [
+            "ManaCost"
+          ],
+          "modQueries": [
+            "ChaosMin"
+          ]
+        },
+        {
+          "name": "checks life-cost damage against the full life cost",
+          "line": 560,
+          "outputKeys": [
+            "LifeCost"
+          ],
+          "modQueries": [
+            "ChaosMin"
+          ]
+        },
+        {
+          "name": "Test mana cost efficiency with support gems",
+          "line": 569,
+          "outputKeys": [
+            "ManaCost"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "rounds Supreme Ego mana reservation down",
+          "line": 582,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "evaluates BaseFlag tags using PoB 1 skill data",
+          "line": 593,
+          "outputKeys": [],
+          "modQueries": [
+            "BaseFlagTest",
+            "NegatedBaseFlagTest"
+          ]
+        },
+        {
+          "name": "applies Pact of Beidat coverage based on uptime",
+          "line": 614,
+          "outputKeys": [
+            "BeidatAdditionalProjectiles",
+            "TotalDPS"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies Pact damage to eligible spells",
+          "line": 645,
+          "outputKeys": [
+            "LyciaUpTimeRatio",
+            "TotalDPS"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "applies Pact of K'Tash to instant damaging Vaal spells",
+          "line": 671,
+          "outputKeys": [
+            "SoulGainPreventionDuration",
+            "TotalDotDPS"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "does not apply Pacts to ineligible spells",
+          "line": 686,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "ignores invalid extra supports while allowing support name collisions",
+          "line": 700,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTimelessJewelSettings_spec.lua",
+      "loc": 53,
+      "describes": [
+        "TestTimelessJewelSettings"
+      ],
+      "testCount": 3,
+      "category": "domain",
+      "primaryUnblocker": 32,
+      "unblockedBy": [
+        18,
+        32
+      ],
+      "engineSurface": [
+        "buildXml",
+        "itemsTab",
+        "passiveSpec"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Timeless jewel settings round-tripping through the build XML, plus the undo record.",
+      "tests": [
+        {
+          "name": "round trips socketAllocate through the build XML",
+          "line": 8,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "omits socketAllocate from the build XML while unticked",
+          "line": 17,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "records the item addition when the target socket is unallocated",
+          "line": 26,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTradeHelpers_spec.lua",
+      "loc": 177,
+      "describes": [
+        "TradeHelpers trade hash matching",
+        "modLineValue",
+        "findTradeIdOption",
+        "findTradeHash"
+      ],
+      "testCount": 23,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        33
+      ],
+      "engineSurface": [],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Trade hash matching and mod-line value extraction. The mod-line helpers are pure string maths and could be ported ahead of the rest of the trade layer if wanted.",
+      "tests": [
+        {
+          "name": "returns the single number on a line",
+          "line": 5,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "returns the midpoint of a '# to #' range",
+          "line": 9,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "handles negative numbers",
+          "line": 14,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "returns nil when onlyFromTo is set and there is no range",
+          "line": 18,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches a flattened option stat and returns its value",
+          "line": 24,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches a legacy '#'-valued option and returns its value",
+          "line": 32,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches an exact-text option and returns no value",
+          "line": 39,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches a timeless jewel",
+          "line": 45,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches an abyss timeless jewel",
+          "line": 52,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "returns nil for an unmatchable line",
+          "line": 64,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches a simple mod",
+          "line": 69,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches a percentage mod",
+          "line": 75,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches a # to # mod",
+          "line": 81,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "is case-insensitive",
+          "line": 88,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "returns no results for an unmatchable line",
+          "line": 94,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "detects inverted mods correctly",
+          "line": 99,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "detects mods with lua pattern characters correctly",
+          "line": 113,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "picks the canonical stat when the descriptor orders values right to left",
+          "line": 126,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "picks the canonical stat on a single line right to left descriptor",
+          "line": 136,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the value implied by the limits when the canonical stat has no value group",
+          "line": 144,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not repeat a hash when several forms of one stat match",
+          "line": 153,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "matches a descriptor with an indexed group and no canonical stat flag",
+          "line": 158,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "detects passage modline correctly",
+          "line": 168,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTradeQuery_spec.lua",
+      "loc": 180,
+      "describes": [
+        "TradeQuery",
+        "result dropdown tooltipFunc",
+        "GetResultEvaluation",
+        "ReduceOutput"
+      ],
+      "testCount": 7,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        33
+      ],
+      "engineSurface": [
+        "tradeHttp",
+        "uiControls"
+      ],
+      "outputKeys": [
+        "PhysicalTakenHit"
+      ],
+      "modQueries": [],
+      "note": "Trade query tab behaviour.",
+      "tests": [
+        {
+          "name": "returns early when sortedResultTbl[row_idx] is missing",
+          "line": 33,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "returns early when the backing result entry has been cleared",
+          "line": 45,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the first visible ring for a Pearl result without a selected slot",
+          "line": 65,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "evaluates a socketed Megalomaniac by node combination",
+          "line": 88,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves lower-is-better values for weighted result comparison",
+          "line": 127,
+          "outputKeys": [
+            "PhysicalTakenHit"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "uses selected minion stats for weighted result comparison",
+          "line": 143,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps fallback DPS stats when FullDPS is selected but not present",
+          "line": 159,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTradeQueryCurrency_spec.lua",
+      "loc": 286,
+      "describes": [
+        "TradeQuery Currency Conversion",
+        "ConvertCurrencyToDivs",
+        "PullCXData",
+        "GetTotalPriceString"
+      ],
+      "testCount": 12,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        33
+      ],
+      "engineSurface": [
+        "tradeHttp",
+        "uiControls"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Currency conversion and price display for trade results.",
+      "tests": [
+        {
+          "name": "handles chaos currency",
+          "line": 11,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "returns nil for unmapped",
+          "line": 21,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies the Stat Value fallback when currency rates are missing",
+          "line": 27,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "fetches currency exchange data without authentication",
+          "line": 97,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "waits until a realm is selected",
+          "line": 117,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "stores responses under the requested realm",
+          "line": 129,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "converts a chained market to divine values",
+          "line": 164,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "keeps the highest-stock listing for a currency",
+          "line": 207,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "skips listings with a zero ratio",
+          "line": 228,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows a notice on an API error response",
+          "line": 244,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not refetch within the rate-limit window",
+          "line": 253,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "aggregates prices",
+          "line": 266,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTradeQueryGenerator_spec.lua",
+      "loc": 208,
+      "describes": [
+        "TradeQueryGenerator",
+        "ProcessMod",
+        "Talisman mods",
+        "Eldritch mods",
+        "WeightedRatioOutputs",
+        "Filter prioritization"
+      ],
+      "testCount": 14,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        16,
+        33
+      ],
+      "engineSurface": [
+        "item",
+        "tradeHttp",
+        "uiControls"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Query generation from an item and a set of weights.",
+      "tests": [
+        {
+          "name": "handles special curse case",
+          "line": 7,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "only generates enchant weights when enabled",
+          "line": 18,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "includes the utility flask charge enchant",
+          "line": 34,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "shows the Eldritch options for amulets",
+          "line": 50,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "handles infinite base",
+          "line": 75,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "handles zero base",
+          "line": 85,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses minion output for non-FullDPS stats when minion output is desired",
+          "line": 92,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses lower is better stats correctly",
+          "line": 101,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses player and minion output for FullDPS",
+          "line": 111,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses player output for non-FullDPS even when minion output is available",
+          "line": 121,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "uses the fallback DPS ratio once when FullDPS is unavailable",
+          "line": 129,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "falls back to player output when the selected stat is not on minion output",
+          "line": 138,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "supports light radius as a player stat weight",
+          "line": 147,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "counts socket and link constraints against MAX_FILTERS",
+          "line": 169,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTradeQueryRateLimiter_spec.lua",
+      "loc": 79,
+      "describes": [
+        "TradeQueryRateLimiter",
+        "ParseHeader",
+        "ParsePolicy",
+        "UpdateFromHeader",
+        "NextRequestTime",
+        "AgeOutRequests"
+      ],
+      "testCount": 6,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        33
+      ],
+      "engineSurface": [
+        "tradeHttp"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Trade API rate-limit accounting. Worth porting early: it is pure bookkeeping and the C# HTTP layer (#31) needs the same policy.",
+      "tests": [
+        {
+          "name": "parses basic headers",
+          "line": 5,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "parses full policy",
+          "line": 17,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "applies margin to limits",
+          "line": 32,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "blocks on retry-after",
+          "line": 44,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "blocks on window limit",
+          "line": 55,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "cleans up timestamps and decrements",
+          "line": 69,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTradeQueryRequests_spec.lua",
+      "loc": 323,
+      "describes": [
+        "TradeQueryRequests",
+        "ProcessQueue",
+        "SearchWithQueryWeightAdjusted",
+        "FetchResultBlock",
+        "FetchResults"
+      ],
+      "testCount": 8,
+      "category": "platform",
+      "primaryUnblocker": 33,
+      "unblockedBy": [
+        33
+      ],
+      "engineSurface": [
+        "item",
+        "tradeHttp"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Trade request construction and response handling.",
+      "tests": [
+        {
+          "name": "skips empty queue",
+          "line": 40,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "processes search queue item",
+          "line": 48,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not crash on 401",
+          "line": 71,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "retries on 429 with exponential backoff",
+          "line": 107,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "respects recursion limit",
+          "line": 148,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves item influences in reconstructed item strings",
+          "line": 197,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "reads weighted sums from current and legacy pseudo mods",
+          "line": 240,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "fetches up to maxFetchPerSearch items",
+          "line": 289,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTreeTab_spec.lua",
+      "loc": 103,
+      "describes": [
+        "TreeTab"
+      ],
+      "testCount": 3,
+      "category": "domain",
+      "primaryUnblocker": 18,
+      "unblockedBy": [
+        18,
+        39
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "passiveSpec"
+      ],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Mastery effect selection, Runegraft restoration and node replacement on the PassiveSpec, plus the power report entries they produce.",
+      "tests": [
+        {
+          "name": "restores a Runegraft after rebuilding mastery options",
+          "line": 24,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "clears the selected mastery reminder after deallocation",
+          "line": 45,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "adds separate power report entries for mastery effects",
+          "line": 55,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestTriggers_spec.lua",
+      "loc": 1573,
+      "describes": [
+        "TestTriggers"
+      ],
+      "testCount": 60,
+      "category": "engine",
+      "primaryUnblocker": 27,
+      "unblockedBy": [
+        22,
+        23,
+        24,
+        25,
+        27
+      ],
+      "engineSurface": [
+        "calcsTab",
+        "commonLib",
+        "configTab",
+        "frameLoop",
+        "item",
+        "itemsTab",
+        "skillsTab"
+      ],
+      "outputKeys": [
+        "EffectiveSourceRate",
+        "Minion",
+        "OffHand",
+        "SkillTriggerRate"
+      ],
+      "modQueries": [],
+      "note": "60 tests over trigger mechanics: cooldowns, trigger rates, source selection, Cast on Crit / Cast while Channelling and friends. The largest single consumer of ticket 26 (#27).",
+      "tests": [
+        {
+          "name": "Trigger Law of the Wilds",
+          "line": 38,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger The Rippling Thoughts",
+          "line": 65,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger The Surging Thoughts",
+          "line": 93,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger The Hidden Blade",
+          "line": 121,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Replica Eternity Shroud",
+          "line": 142,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger shroud of the Lightless",
+          "line": 168,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Limbsplit",
+          "line": 209,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Lioneye's Paws",
+          "line": 234,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Replica Lioneye's Paws",
+          "line": 285,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Moonbender's Wing",
+          "line": 331,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Ngamahu's Flame",
+          "line": 359,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Cameria's Avarice",
+          "line": 385,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Uul-Netol's Embrace",
+          "line": 408,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Rigwald's Crest",
+          "line": 435,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Jorrhast's Blacksteel",
+          "line": 458,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Ashcaller",
+          "line": 486,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Arakaali's Fang",
+          "line": 522,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Sporeguard",
+          "line": 544,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Mark of the Elder",
+          "line": 572,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Mark of the Shaper",
+          "line": 594,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger The Poet's Pen",
+          "line": 616,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Maloney's Mechanism",
+          "line": 640,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Replica Maloney's Mechanism",
+          "line": 683,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Asenath's Mark",
+          "line": 727,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Vixen's Entrapment",
+          "line": 780,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Atziri's Rule",
+          "line": 806,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Trigger Craft",
+          "line": 830,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Kitava's Thirst",
+          "line": 860,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Mjolner",
+          "line": 912,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Cospri's Malice",
+          "line": 949,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Cast On Critical",
+          "line": 980,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Cast on Melee Kill",
+          "line": 1008,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Holy Relic",
+          "line": 1040,
+          "outputKeys": [
+            "Minion"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Cast when Damage Taken",
+          "line": 1050,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Cast when Stunned",
+          "line": 1057,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Spellslinger",
+          "line": 1064,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Mark On Hit",
+          "line": 1103,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Hextouch",
+          "line": 1113,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Oskarm",
+          "line": 1120,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Tempest Shield",
+          "line": 1148,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Shattershard",
+          "line": 1177,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Combust",
+          "line": 1199,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Prismatic Burst",
+          "line": 1215,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "multiplies Arcanist Brand trigger rate by the attached Brand count",
+          "line": 1228,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Shockwave",
+          "line": 1247,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Manaforged",
+          "line": 1281,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Doom Blast",
+          "line": 1310,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Cast while Channelling",
+          "line": 1317,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Focus",
+          "line": 1324,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Flamewood",
+          "line": 1349,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Automation",
+          "line": 1362,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Svalinn",
+          "line": 1369,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger settlers enchant",
+          "line": 1398,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Triggerbots CWCHandler",
+          "line": 1418,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Triggerbots defaultHandler",
+          "line": 1432,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Fiery Impact with its source weapon",
+          "line": 1468,
+          "outputKeys": [
+            "EffectiveSourceRate",
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Use the equipped bow for Void Shot granted by Voidfletcher",
+          "line": 1507,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "Trigger Ghostly Artillery with a projectile attack",
+          "line": 1524,
+          "outputKeys": [
+            "EffectiveSourceRate",
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Do not add socketed attacks to the Ghostly Artillery trigger rotation",
+          "line": 1532,
+          "outputKeys": [
+            "SkillTriggerRate"
+          ],
+          "modQueries": []
+        },
+        {
+          "name": "Use only the Cutlass when dual wielding",
+          "line": 1546,
+          "outputKeys": [
+            "EffectiveSourceRate",
+            "OffHand"
+          ],
+          "modQueries": []
+        }
+      ]
+    },
+    {
+      "file": "spec/System/TestUtils_spec.lua",
+      "loc": 135,
+      "describes": [
+        "Utils.stringify",
+        "scalars",
+        "tables"
+      ],
+      "testCount": 20,
+      "category": "drop",
+      "primaryUnblocker": null,
+      "unblockedBy": [],
+      "engineSurface": [],
+      "outputKeys": [],
+      "modQueries": [],
+      "note": "Modules/Utils.stringify: serialising a Lua value back to loadable Lua source. It exists so PoB can write Lua data files; the C# port writes JSON/MessagePack (ticket 03) and has no counterpart. Do not port -- but the deterministic key ordering it asserts is the same requirement the fuzz corpus writer and the golden corpus have, so the intent survives elsewhere.",
+      "tests": [
+        {
+          "name": "stringifies strings with quotes",
+          "line": 13,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "strips newlines from strings by default",
+          "line": 17,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves newlines when allowed",
+          "line": 21,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "does not use long string form for newline-free strings",
+          "line": 26,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "escapes quotes and backslashes",
+          "line": 30,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "preserves carriage returns and long-string delimiters when allowed",
+          "line": 36,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "normalizes all newline forms when newlines are disabled",
+          "line": 42,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "stringifies numbers",
+          "line": 46,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "stringifies booleans",
+          "line": 51,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "stringifies nil",
+          "line": 56,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "errors on disallowed types",
+          "line": 61,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads an empty table",
+          "line": 68,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads an array using array syntax",
+          "line": 73,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads a string-keyed map",
+          "line": 81,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads nested tables (no mixed array/map levels)",
+          "line": 87,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "sorts map keys deterministically",
+          "line": 93,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads numeric (non-sequential) keys",
+          "line": 101,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads multiline string values when allowed",
+          "line": 107,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads escaped multiline string keys",
+          "line": 113,
+          "outputKeys": [],
+          "modQueries": []
+        },
+        {
+          "name": "serializes and loads mixed tables",
+          "line": 119,
+          "outputKeys": [],
+          "modQueries": []
+        }
+      ]
+    }
+  ]
+}
