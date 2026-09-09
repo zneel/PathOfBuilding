@@ -1,0 +1,8 @@
+# The golden corpus is gzip, and the repository root sets `* text=auto`. Git's binary
+# detection would almost certainly get these right on its own, but "almost certainly" is not
+# a property an answer key should rely on: a single CRLF translation would corrupt every
+# build in the corpus, and the failure would surface as an unreadable stream months later.
+*.golden.json.gz -text -diff
+
+# manifest.json stays text: it is the one file in here meant to be read and reviewed.
+manifest.json text eol=lf
