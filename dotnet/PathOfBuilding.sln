@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pob.Rendering", "Pob.Render
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pob.Rendering.Tests", "Pob.Rendering.Tests\Pob.Rendering.Tests.csproj", "{1383D1CC-B75A-4509-8983-85D680D66609}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pob.Benchmarks", "Pob.Benchmarks\Pob.Benchmarks.csproj", "{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,18 @@ Global
 		{1383D1CC-B75A-4509-8983-85D680D66609}.Release|x64.Build.0 = Release|Any CPU
 		{1383D1CC-B75A-4509-8983-85D680D66609}.Release|x86.ActiveCfg = Release|Any CPU
 		{1383D1CC-B75A-4509-8983-85D680D66609}.Release|x86.Build.0 = Release|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Debug|x64.Build.0 = Debug|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Debug|x86.Build.0 = Debug|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Release|x64.ActiveCfg = Release|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Release|x64.Build.0 = Release|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Release|x86.ActiveCfg = Release|Any CPU
+		{1325F3C1-0595-4984-BD1A-2EE26FB74AC3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

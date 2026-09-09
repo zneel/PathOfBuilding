@@ -86,6 +86,21 @@ Requires the `luautf8` rock (`luarocks --lua-version=5.1 install luautf8`). On U
 
 **One upstream fix was required**: `src/Modules/Main.lua:342` used `count += 1`, valid only under the patched LuaJIT PoB ships as `runtime/lua51.dll`. Lua reports that at parse time regardless of reachability, so `HeadlessWrapper.lua` would not load. Changed to `count = count + 1`, identical under both.
 
+## ⚠️ The headless engine swallows errors — read this before writing any generator
+
+`launch:OnFrame` (`src/Launch.lua:112`) runs the entire calculation inside `PCall` and **does not rethrow**. On error it stores the message in `launch.promptMsg` and continues; `Launch.lua:115` then sends a build that crashed on its first calculation back to the build list via a deferred `main:SetMode`.
+
+**A generator that wraps only its own calls in `pcall` will see a clean run, read `build.calcsTab.mainOutput`, and record the *previous* build's output as this build's answer.** No error, no exception, plausible numbers, silently poisoned oracle. For a golden corpus that is the worst available failure mode — every engine ticket downstream would then be verified against corrupt data.
+
+Any tool that drives the engine must:
+1. Read `launch.promptMsg` after every `runCallback` and treat non-nil as a failed build.
+2. Check for the pending deferred mode switch, which marks a build that was ejected.
+3. Clear the prompt before the next build so failures cannot leak forward.
+4. Record failures explicitly rather than dropping them.
+5. **Prove the detector fires** — inject a synthetic `ShowErrMsg` and confirm the error is reported, outputs withheld, prompt cleared, and the next build recovers. A failure detector never shown to fire is not a detector.
+
+`dotnet/tools/fuzz/apply.lua` implements this and is the reference.
+
 ## Known upstream quirks the port must decide about
 
 - **`Multiplier:QualityOnFlask nil`** — a mod name with a literal `" nil"` appended, from a Lua string concat against a nil value. Present in 3 of the 5 test builds' `modDB`. It is pinned in the #7 golden dumps. Decide deliberately whether the C# port reproduces it or fixes it; either way it must be a conscious choice, because it changes what queries match.
