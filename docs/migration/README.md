@@ -108,6 +108,14 @@ Any tool that drives the engine must:
 - **Insertion order within a mod bucket is not reproducible run to run.** The #7 dumps sort by canonical encoding and discard array order. If the port ever depends on within-bucket order, that dependency cannot be tested against Lua.
 - **The engine stores negative zero** (an inactive Chill contributes `-0 INC ActionSpeed`). Lua prints `-0`; `%d` formatting and `JsonElement.GetDouble()` both silently fold the sign. Pinned by tests in #7.
 
+## Open question for a human: the frozen 3.13 goldens have drifted
+
+`spec/TestBuilds/3.13/*.lua` holds output values frozen in 3.13. Against the live 3.29 engine they differ on **541 of 2,164 keys**, with **359 keys no longer emitted**. `.busted` already excludes the `#builds` tag from the default run, so this has been latent for a while.
+
+Most of it is presumably intended 3.14–3.29 balance and data change, and some is format (`AnyTakenReflect` frozen `0`, live `false`). But at least one looks like it deserves a look before being waved through: **Dual Savior `AverageDamage` 257.6858 → 19.74**, a 13× drop.
+
+This does not block the port — #8 supersedes those files with a 270-build corpus generated from the current engine. But refreshing or retiring them is a decision someone should make deliberately, and it should happen before anyone changes the golden format again.
+
 ## Phases
 
 | Phase | Tickets | Notes |
