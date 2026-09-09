@@ -9,4 +9,89 @@
     <ProjectReference Include="../Pob.Core/Pob.Core.csproj" />
   </ItemGroup>
 
+  <!--
+    The enumerated behaviour contract travels with the assembly so tests and tools can read it
+    without knowing where the source tree is. Logical name: Pob.Data.behaviour-keys.json.
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="behaviour-keys.json" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BehaviourKeyManifest>$(MSBuildProjectDirectory)/behaviour-keys.json</BehaviourKeyManifest>
+    <BehaviourKeyRoster>$(MSBuildProjectDirectory)/Behaviours/BehaviourRoster.cs</BehaviourKeyRoster>
+  </PropertyGroup>
+
+  <!--
+    Behaviour-key completeness check.
+
+    behaviour-keys.json is machine-generated from src/Data; BehaviourRoster.cs is hand-written.
+    This target fails the build when the two disagree in either direction: a key the data needs
+    with nobody to run it, or a roster entry for a behaviour that no longer exists. That is what
+    turns a league data update into a compile error instead of a silent runtime null.
+
+    Why an MSBuild target rather than an analyzer or a source generator: an analyzer would need
+    Microsoft.CodeAnalysis package references and a separate analyzer project to compare a file
+    against source, and a source generator that emitted the roster from the manifest would be
+    checking generated output against its own input - vacuous by construction. The check is a set
+    comparison between two committed files, which is exactly what MSBuild items already do, with
+    no new dependency and no build-order subtlety. It runs before CoreCompile, so the failure
+    arrives with the other compile errors.
+
+    Both files are ASCII and free of the characters MSBuild expands inside a property-function
+    argument ('%', '$', '@', apostrophe, backtick). enumerate.lua enforces that for the manifest by
+    escaping everything else as \uXXXX and refusing to write a file that still contains one.
+
+    The xunit tests in Pob.Tests/BehaviourKeysManifestTests.cs make the same comparison against the
+    loaded BehaviourRegistry rather than against the text of the roster, so a roster line this
+    regex cannot see is caught there instead of passing silently.
+  -->
+  <Target Name="VerifyBehaviourKeyRoster" BeforeTargets="CoreCompile">
+
+    <Error Condition="!Exists('$(BehaviourKeyManifest)')"
+           Text="behaviour-keys.json is missing. Regenerate it with: lua5.1 dotnet/tools/behaviour-keys/enumerate.lua" />
+    <Error Condition="!Exists('$(BehaviourKeyRoster)')"
+           Text="Behaviours/BehaviourRoster.cs is missing; the behaviour registry cannot be verified." />
+
+    <ReadLinesFromFile File="$(BehaviourKeyManifest)">
+      <Output TaskParameter="Lines" ItemName="_BehaviourManifestLine" />
+    </ReadLinesFromFile>
+    <ReadLinesFromFile File="$(BehaviourKeyRoster)">
+      <Output TaskParameter="Lines" ItemName="_BehaviourRosterLine" />
+    </ReadLinesFromFile>
+
+    <!--
+      The patterns below carry no parentheses, capture groups included: MSBuild counts
+      parentheses inside a property-function argument while parsing the expression, so a regex
+      containing one - even escaped - is a build error (MSB4109) rather than a match. Keys are
+      therefore extracted by deleting everything around them with an alternation, and the '.'
+      in the roster pattern is the literal opening parenthesis of the Pending call.
+    -->
+    <ItemGroup>
+      <!-- Only entries under behaviours[] carry a field named "key"; declarative and
+           transcode-time entries use "id" precisely so they are not picked up here. -->
+      <_BehaviourManifestKey Include="$([System.Text.RegularExpressions.Regex]::Replace('%(_BehaviourManifestLine.Identity)', '^\s*&quot;key&quot;: &quot;|&quot;,?\s*$', ''))"
+                             Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('%(_BehaviourManifestLine.Identity)', '^\s*&quot;key&quot;: &quot;[A-Za-z0-9_]+&quot;,?\s*$'))" />
+
+      <_BehaviourRosterKey Include="$([System.Text.RegularExpressions.Regex]::Replace('%(_BehaviourRosterLine.Identity)', '^\s*Pending.&quot;|^\s*Implemented.&quot;|&quot;.*$', ''))"
+                           Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('%(_BehaviourRosterLine.Identity)', '^\s*Pending.&quot;[A-Za-z0-9_]+&quot;|^\s*Implemented.&quot;[A-Za-z0-9_]+&quot;'))" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_BehaviourKeyWithoutEntry Include="@(_BehaviourManifestKey)" Exclude="@(_BehaviourRosterKey)" />
+      <_BehaviourEntryWithoutKey Include="@(_BehaviourRosterKey)" Exclude="@(_BehaviourManifestKey)" />
+    </ItemGroup>
+
+    <Error Condition="'@(_BehaviourManifestKey)' == ''"
+           Text="No behaviour keys were read from $(BehaviourKeyManifest). The manifest format changed; VerifyBehaviourKeyRoster in Pob.Data.csproj needs updating before it can be trusted again." />
+
+    <Error Condition="'@(_BehaviourKeyWithoutEntry)' != ''"
+           Text="Behaviour key(s) emitted by behaviour-keys.json with no entry in Behaviours/BehaviourRoster.cs: @(_BehaviourKeyWithoutEntry, ', '). Add a line per key - Pending(&quot;Key&quot;, BehaviourHook.&lt;hook&gt;) if it still needs writing (ticket 19), or point it at an existing implementation if the manifest shows it duplicates one." />
+
+    <Error Condition="'@(_BehaviourEntryWithoutKey)' != ''"
+           Text="Behaviours/BehaviourRoster.cs registers key(s) that behaviour-keys.json no longer contains: @(_BehaviourEntryWithoutKey, ', '). The data dropped or renamed them; remove the roster entries, or re-run dotnet/tools/behaviour-keys/enumerate.lua if the manifest is stale." />
+
+    <Message Importance="normal" Text="Behaviour keys verified: @(_BehaviourManifestKey->Count()) key(s) in the manifest, all present in the roster." />
+  </Target>
+
 </Project>
