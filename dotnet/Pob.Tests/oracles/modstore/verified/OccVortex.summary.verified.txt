@@ -1,0 +1,71 @@
+build                   OccVortex
+buildFile               spec/TestBuilds/3.13/OccVortex.xml
+mainSkill               Vortex
+usedModCache            true
+stores                  4
+
+== env.modDB (ModDB) ==
+mods 613 | conditions 49 | multipliers 106 | parent no
+  mod type              BASE 302, FLAG 73, INC 194, LIST 28, MAX 2, MORE 11, OVERRIDE 3
+  source                (empty) 2, (none) 4, 10 Diluting Touch Stacks 2, 10 Eroding Touch Stacks 1, 10 Paralysing Touch Stacks 1, 10 Wasting Touch Stacks 2, Arcane Surge 2, Bandit 1, Base 153, Boss 2, Cold Snap 1, Config 30, Dexterity 2, Fortification 1, Intelligence 2, Item 92, Item Sockets 24, LifeRegen 1, ManaRegen 1, Onslaught 3, Quality 11, Skill 5, Strength 2, Tree 259, Tree22088 1, Tree39085 1, Unlinked Item Sockets 6, Vortex 1
+  value kind            boolean 72, number 513, record 11, record{mod} 14, string 3
+  tag type              ActorCondition 4, Condition 99, Global 16, GlobalEffect 15, IgnoreCond 2, Multiplier 16, MultiplierThreshold 1, PerStat 2, SkillId 3, SkillName 10, SkillType 5, SocketedIn 3
+  extra field           sourceSlot 87
+  tagged mods           141
+  flagged mods          40
+  keyword-flagged mods  8
+  unsourced mods        4
+  distinct mod names    271
+
+== env.enemyDB (ModDB) ==
+mods 162 | conditions 6 | multipliers 23 | parent no
+  mod type              BASE 70, FLAG 62, INC 20, MORE 10
+  source                (empty) 2, (none) 5, 15 Mania Stacks 4, Base 99, Boss 1, Brittle 1, Chill 2, Cold Snap 2, Config 14, EnemyConfig 4, Malediction 2, Sap 1, Scorch 1, Shock 1, Skill 10, Tree 11, Vortex 2
+  value kind            boolean 62, number 100
+  tag type              ActorCondition 1, Condition 98, GlobalEffect 17, IgnoreCond 2, Multiplier 2, MultiplierThreshold 1
+  extra field           (none)
+  tagged mods           96
+  flagged mods          6
+  keyword-flagged mods  0
+  unsourced mods        5
+  distinct mod names    130
+
+== env.itemModDB (ModDB) ==
+mods 119 | conditions 15 | multipliers 77 | parent no
+  mod type              BASE 98, INC 15, LIST 6
+  source                Item 83, Item Sockets 24, Quality 6, Unlinked Item Sockets 6
+  value kind            number 113, record 4, record{mod} 1, string 1
+  tag type              Condition 2, SkillName 1, SocketedIn 3
+  extra field           sourceSlot 81
+  tagged mods           6
+  flagged mods          6
+  keyword-flagged mods  6
+  unsourced mods        0
+  distinct mod names    59
+
+== env.player.mainSkill.skillModList (ModList) ==
+mods 4 | conditions 1 | multipliers 0 | parent yes
+  mod type              BASE 1, FLAG 3
+  source                Config 3, Maximum Sustainable Trauma Stacks 1
+  value kind            boolean 3, number 1
+  tag type              (none)
+  extra field           (none)
+  tagged mods           0
+  flagged mods          0
+  keyword-flagged mods  0
+  unsourced mods        0
+  distinct mod names    4
+
+== env.player.mainSkill.skillModList — full ModDB:Print() listing ==
+=== Modifiers ===
+'Condition:ColdHasDamage':
+	true = FLAG|-|-|-|Config
+'Condition:ColdIsHighestDamageType':
+	true = FLAG|-|-|-|Config
+'Condition:FireHasDamage':
+	true = FLAG|-|-|-|Config
+'Multiplier:TraumaStacks':
+	0 = BASE|-|-|-|Maximum Sustainable Trauma Stacks
+=== Conditions ===
+CritInPast8Sec
+=== Multipliers ===

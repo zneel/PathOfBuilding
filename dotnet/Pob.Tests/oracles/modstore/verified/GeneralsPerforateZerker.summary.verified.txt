@@ -1,0 +1,89 @@
+build                   Generals Perforate Zerker
+buildFile               spec/TestBuilds/3.13/Generals Perforate Zerker.xml
+mainSkill               Perforate
+usedModCache            true
+stores                  4
+
+== env.modDB (ModDB) ==
+mods 682 | conditions 53 | multipliers 106 | parent no
+  mod type              BASE 322, FLAG 88, INC 190, LIST 58, MORE 19, OVERRIDE 5
+  source                (empty) 1, (none) 6, 10 Diluting Touch Stacks 2, 10 Eroding Touch Stacks 1, 10 Paralysing Touch Stacks 1, 10 Wasting Touch Stacks 2, Bandit 1, Base 155, Boss 2, Config 55, Consecrated Ground 3, Dexterity 2, Fortification 1, Intelligence 2, Item 149, Item Sockets 24, LifeRegen 1, ManaRegen 1, Onslaught 3, Quality 11, Rage 1, Skill 18, Strength 2, Tree 229, Tree23090 1, Tree66752 1, Unlinked Item Sockets 6, Warcries have infinite power 1
+  value kind            boolean 87, number 537, record 27, record{mod} 6, string 25
+  tag type              ActorCondition 9, Condition 149, Global 13, GlobalEffect 28, IgnoreCond 3, Multiplier 20, MultiplierThreshold 1, PerStat 2, SkillId 3, SkillName 11, SkillType 11, SocketedIn 1
+  extra field           sourceSlot 143
+  tagged mods           206
+  flagged mods          102
+  keyword-flagged mods  34
+  unsourced mods        6
+  distinct mod names    293
+
+== env.enemyDB (ModDB) ==
+mods 140 | conditions 5 | multipliers 22 | parent no
+  mod type              BASE 61, FLAG 56, INC 16, MORE 7
+  source                (none) 5, 15 Mania Stacks 4, Base 99, Boss 1, Brittle 1, Chill 1, Config 13, Consecrated Ground 3, EnemyConfig 4, Item 1, Sap 1, Scorch 1, Shock 1, Skill 3, Tree 2
+  value kind            boolean 56, number 84
+  tag type              ActorCondition 1, Condition 87, GlobalEffect 11, IgnoreCond 2, Multiplier 2, MultiplierThreshold 1
+  extra field           (none)
+  tagged mods           86
+  flagged mods          5
+  keyword-flagged mods  0
+  unsourced mods        5
+  distinct mod names    125
+
+== env.itemModDB (ModDB) ==
+mods 173 | conditions 15 | multipliers 78 | parent no
+  mod type              BASE 104, FLAG 1, INC 22, LIST 44, MORE 2
+  source                Item 137, Item Sockets 24, Quality 6, Unlinked Item Sockets 6
+  value kind            boolean 1, number 128, record 21, string 23
+  tag type              Condition 6, Global 6, Multiplier 1, SkillName 1, SkillType 4, SocketedIn 1
+  extra field           sourceSlot 135
+  tagged mods           18
+  flagged mods          11
+  keyword-flagged mods  18
+  unsourced mods        0
+  distinct mod names    66
+
+== env.player.mainSkill.skillModList (ModList) ==
+mods 13 | conditions 1 | multipliers 0 | parent yes
+  mod type              BASE 3, FLAG 3, INC 6, MORE 1
+  source                Config 2, General's Cry Cooldown 1, Item 1, Maximum Sustainable Trauma Stacks 1, Skill 1, Tree 6, Used by mirage 1
+  value kind            boolean 3, number 10
+  tag type              (none)
+  extra field           (none)
+  tagged mods           0
+  flagged mods          6
+  keyword-flagged mods  0
+  unsourced mods        0
+  distinct mod names    7
+
+== env.player.mainSkill.skillModList — full ModDB:Print() listing ==
+=== Modifiers ===
+'Condition:PhysicalHasDamage':
+	true = FLAG|-|-|-|Config
+'Condition:PhysicalIsHighestDamageType':
+	true = FLAG|-|-|-|Config
+'DPS':
+	-34.123847167325 = MORE|-|-|-|General's Cry Cooldown
+'Damage':
+	20 = INC|Attack|-|-|Tree:224
+'Damage':
+	20 = INC|Attack|-|-|Tree:65680
+'Damage':
+	20 = INC|Attack|-|-|Tree:65744
+'Damage':
+	20 = INC|Attack|-|-|Tree:66704
+'Damage':
+	20 = INC|Attack|-|-|Tree:66768
+'Damage':
+	25 = INC|Attack|-|-|Tree:65746
+'HasNoCost':
+	true = FLAG|-|-|-|Used by mirage
+'Multiplier:TraumaStacks':
+	0 = BASE|-|-|-|Maximum Sustainable Trauma Stacks
+'QuantityMultiplier':
+	1 = BASE|-|-|-|Item:20:Abyssus, Ezomyte Burgonet
+'QuantityMultiplier':
+	6 = BASE|-|-|-|Skill:GeneralsCry
+=== Conditions ===
+CritInPast8Sec
+=== Multipliers ===
