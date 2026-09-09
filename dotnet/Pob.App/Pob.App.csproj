@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Avalonia 11.x desktop shell (tickets 27, 33-42).
+    NOTE: at merge time this project also gains a ProjectReference to
+    ../Pob.Rendering/Pob.Rendering.csproj, which is owned by ticket 27 / issue #28 and
+    is deliberately not added here.
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Desktop" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="Avalonia.Fonts.Inter" />
+    <PackageReference Include="Avalonia.Diagnostics" Condition="'$(Configuration)' == 'Debug'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Pob.Core/Pob.Core.csproj" />
+    <ProjectReference Include="../Pob.Parsing/Pob.Parsing.csproj" />
+    <ProjectReference Include="../Pob.Data/Pob.Data.csproj" />
+    <ProjectReference Include="../Pob.Calc/Pob.Calc.csproj" />
+    <ProjectReference Include="../Pob.Platform/Pob.Platform.csproj" />
+  </ItemGroup>
+
+</Project>

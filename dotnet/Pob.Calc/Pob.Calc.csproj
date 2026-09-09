@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Calc engine (tickets 20-26). No DI container by design: CalcSession is threaded
+    explicitly through every call — see docs/migration/tickets/20-calcsession.md.
+  -->
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Pob.Core/Pob.Core.csproj" />
+  </ItemGroup>
+
+</Project>

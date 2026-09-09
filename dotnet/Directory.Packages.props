@@ -1,0 +1,48 @@
+<Project>
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <!-- Analyzers every project in the tree gets, no <PackageReference> needed. -->
+  <ItemGroup>
+    <GlobalPackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.401" />
+  </ItemGroup>
+
+  <!--
+    UI stack. Only Pob.App and Pob.Rendering may reference these.
+    Pob.Core must stay free of them (see docs/migration/tickets/01-solution-scaffold.md).
+    SkiaSharp is pinned to the exact version Avalonia.Skia 11.3.7 resolves, so the
+    Avalonia render backend and Pob.Rendering's own Skia usage share one native library.
+  -->
+  <ItemGroup>
+    <PackageVersion Include="Avalonia" Version="11.3.7" />
+    <PackageVersion Include="Avalonia.Desktop" Version="11.3.7" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="11.3.7" />
+    <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.3.7" />
+    <PackageVersion Include="Avalonia.Skia" Version="11.3.7" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.3.7" />
+    <PackageVersion Include="SkiaSharp" Version="2.88.9" />
+    <PackageVersion Include="SkiaSharp.NativeAssets.Linux" Version="2.88.9" />
+  </ItemGroup>
+
+  <!--
+    Transitive pin. Avalonia.Desktop 11.3.7 resolves Tmds.DBus.Protocol 0.21.2, which
+    carries GHSA-xrw6-gwf8-vvr9 (high). NuGet audit fails the build on it because
+    TreatWarningsAsErrors turns NU1903 into an error. 0.21.3 is the patched release and
+    is API-compatible; CentralPackageTransitivePinningEnabled promotes this to the
+    resolved version. Drop this entry once Avalonia ships a version that resolves it.
+  -->
+  <ItemGroup>
+    <PackageVersion Include="Tmds.DBus.Protocol" Version="0.21.3" />
+  </ItemGroup>
+
+  <!-- Test stack. -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.10.0" />
+    <PackageVersion Include="xunit.v3" Version="3.2.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+
+</Project>

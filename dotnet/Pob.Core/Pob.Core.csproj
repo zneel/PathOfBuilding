@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Domain model root. Ticket 01 constraint: Pob.Core has ZERO UI dependencies —
+    no Avalonia, no SkiaSharp, no project reference to Pob.Rendering or Pob.App.
+    The headless conformance oracles (tickets 05-08) depend on that separation, so
+    this project deliberately carries no PackageReference and no ProjectReference.
+  -->
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+</Project>
