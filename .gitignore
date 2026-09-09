@@ -45,3 +45,6 @@ runtime/SimpleGraphic/Screenshots
 
 .emmyrc.json
 .luarc.json
+
+# Claude Code agent worktrees (harness scratch, not project content)
+.claude/worktrees/
