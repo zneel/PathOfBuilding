@@ -22,7 +22,8 @@ Sum(type, cfg, ...names)   Σ over matching mods; tagged mods via EvalMod(...) ?
 More(cfg, ...names)        per-name: modResult = Π(1+v/100); then
                              result *= Round(modResult, 2)      -- 2dp rounding PER NAME
                            unless data.highPrecisionMods[name][type] gives precision p:
-                             result = Floor(result*modResult*10^p)/10^p
+                             result = MathFloor(result*modResult*10^p)/10^p
+                             -- raw math.floor, NO +0.0001 epsilon (ModDB.lua:194-195)
 Flag(cfg, ...names)        first FLAG mod whose EvalMod is truthy → true; else parent
 Override(cfg, ...names)    first OVERRIDE mod with non-null EvalMod → its value
 List(cfg, ...names)        append every LIST mod's evaluated value
