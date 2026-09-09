@@ -176,6 +176,20 @@ dotnet_diagnostic.CA1707.severity = none
 dotnet_diagnostic.CA1861.severity = none   # constant arrays as arguments: fine in tests
 dotnet_diagnostic.CA1515.severity = none   # public types: xUnit needs them public
 
+#### Rendering hot path ####
+
+# DrawCmd is a mutable struct buffered by the thousand per frame (PassiveTreeView pushes
+# thousands of connector quads) and sorted in place. Public fields are the point: properties
+# on a mutable struct add ceremony and invite defensive copies. CA1051 exists to stop public
+# fields leaking out of API surface types, which this is not.
+[Pob.Rendering/DrawCmd.cs]
+dotnet_diagnostic.CA1051.severity = none
+
+# DrawQueue really is a queue of draw commands. CA1711 exists to stop non-collections being
+# named after collections; suppressing it here is the rule working as intended.
+[Pob.Rendering/DrawQueue.cs]
+dotnet_diagnostic.CA1711.severity = none
+
 # Generated data loaders (ticket 03/18) are machine output; do not police them.
 [**/Generated/**.cs]
 generated_code = true

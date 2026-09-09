@@ -1,20 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <LangVersion>latest</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
-    <RootNamespace>Pob.Rendering</RootNamespace>
-    <AssemblyName>Pob.Rendering</AssemblyName>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
-
+  <!--
+    Layer-sorted draw queue + Skia backend (ticket 27 / issue #28).
+    Framework, nullability, analyzers and doc-file settings come from
+    Directory.Build.props; package versions from Directory.Packages.props.
+  -->
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.3.7" />
-    <PackageReference Include="Avalonia.Skia" Version="11.3.7" />
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Skia" />
   </ItemGroup>
 
 </Project>

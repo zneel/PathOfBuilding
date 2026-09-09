@@ -2,9 +2,6 @@
 
   <!--
     Avalonia 11.x desktop shell (tickets 27, 33-42).
-    NOTE: at merge time this project also gains a ProjectReference to
-    ../Pob.Rendering/Pob.Rendering.csproj, which is owned by ticket 27 / issue #28 and
-    is deliberately not added here.
   -->
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -27,6 +24,7 @@
     <ProjectReference Include="../Pob.Data/Pob.Data.csproj" />
     <ProjectReference Include="../Pob.Calc/Pob.Calc.csproj" />
     <ProjectReference Include="../Pob.Platform/Pob.Platform.csproj" />
+    <ProjectReference Include="../Pob.Rendering/Pob.Rendering.csproj" />
   </ItemGroup>
 
 </Project>
