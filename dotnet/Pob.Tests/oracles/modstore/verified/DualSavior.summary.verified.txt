@@ -1,0 +1,85 @@
+build                   Dual Savior
+buildFile               spec/TestBuilds/3.13/Dual Savior.xml
+mainSkill               Double Strike
+usedModCache            true
+stores                  4
+
+== env.modDB (ModDB) ==
+mods 224 | conditions 14 | multipliers 48 | parent no
+  mod type              BASE 123, FLAG 52, INC 29, LIST 9, MORE 8, OVERRIDE 3
+  source                (none) 3, 10 Diluting Touch Stacks 2, 10 Eroding Touch Stacks 1, 10 Paralysing Touch Stacks 1, 10 Wasting Touch Stacks 2, Bandit 1, Base 153, Boss 2, Config 27, Dexterity 2, Intelligence 2, Item 4, Item Sockets 6, ManaRegen 1, Quality 2, Strength 2, Tree 11, Unlinked Item Sockets 2
+  value kind            boolean 52, number 163, record 8, record{mod} 1
+  tag type              ActorCondition 1, Condition 87, Global 2, GlobalEffect 10, IgnoreCond 2, Multiplier 16, MultiplierThreshold 1, PerStat 1, SkillId 3, SkillName 9, SkillType 3
+  extra field           sourceSlot 4
+  tagged mods           101
+  flagged mods          16
+  keyword-flagged mods  1
+  unsourced mods        3
+  distinct mod names    179
+
+== env.enemyDB (ModDB) ==
+mods 127 | conditions 3 | multipliers 22 | parent no
+  mod type              BASE 59, FLAG 51, INC 11, MORE 6
+  source                (none) 5, 15 Mania Stacks 4, Base 99, Boss 1, Brittle 1, Chill 1, Config 9, EnemyConfig 4, Sap 1, Scorch 1, Shock 1
+  value kind            boolean 51, number 76
+  tag type              ActorCondition 1, Condition 80, GlobalEffect 8, IgnoreCond 2, Multiplier 2, MultiplierThreshold 1
+  extra field           (none)
+  tagged mods           76
+  flagged mods          5
+  keyword-flagged mods  0
+  unsourced mods        5
+  distinct mod names    117
+
+== env.itemModDB (ModDB) ==
+mods 14 | conditions 2 | multipliers 23 | parent no
+  mod type              BASE 10, INC 2, LIST 2
+  source                Item 4, Item Sockets 6, Quality 2, Unlinked Item Sockets 2
+  value kind            number 12, record 2
+  tag type              Global 2
+  extra field           sourceSlot 4
+  tagged mods           2
+  flagged mods          0
+  keyword-flagged mods  0
+  unsourced mods        0
+  distinct mod names    8
+
+== env.player.mainSkill.skillModList (ModList) ==
+mods 11 | conditions 1 | multipliers 0 | parent yes
+  mod type              BASE 3, FLAG 7, MORE 1
+  source                Config 4, Maximum Sustainable Trauma Stacks 2, The Saviour 1, The Saviour Mirage Warriors 1, Used by mirage 1, bleed 2
+  value kind            boolean 7, number 4
+  tag type              (none)
+  extra field           (none)
+  tagged mods           0
+  flagged mods          0
+  keyword-flagged mods  0
+  unsourced mods        0
+  distinct mod names    7
+
+== env.player.mainSkill.skillModList — full ModDB:Print() listing ==
+=== Modifiers ===
+'Condition:PhysicalHasDamage':
+	true = FLAG|-|-|-|Config
+'Condition:PhysicalHasDamage':
+	true = FLAG|-|-|-|Config
+'Condition:PhysicalIsHighestDamageType':
+	true = FLAG|-|-|-|Config
+'Condition:PhysicalIsHighestDamageType':
+	true = FLAG|-|-|-|Config
+'Condition:SingleBleed':
+	true = FLAG|-|-|-|bleed
+'Condition:SingleBleed':
+	true = FLAG|-|-|-|bleed
+'Damage':
+	-50 = MORE|-|-|-|The Saviour
+'HasNoCost':
+	true = FLAG|-|-|-|Used by mirage
+'Multiplier:TraumaStacks':
+	0 = BASE|-|-|-|Maximum Sustainable Trauma Stacks
+'Multiplier:TraumaStacks':
+	0 = BASE|-|-|-|Maximum Sustainable Trauma Stacks
+'QuantityMultiplier':
+	1 = BASE|-|-|-|The Saviour Mirage Warriors
+=== Conditions ===
+CritInPast8Sec
+=== Multipliers ===

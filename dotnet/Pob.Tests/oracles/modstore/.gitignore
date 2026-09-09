@@ -1,0 +1,4 @@
+# Snapshot output from a failing ModStoreDumpTests run. The matching *.verified.txt is
+# committed; the .received.txt beside it is what the test actually produced and is meant to
+# be read and then either accepted (POB_MODSTORE_ACCEPT=1 dotnet test) or fixed.
+*.received.txt

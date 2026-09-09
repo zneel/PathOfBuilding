@@ -1,0 +1,70 @@
+build                   Dual Wield Cospris CoC
+buildFile               spec/TestBuilds/3.13/Dual Wield Cospris CoC.xml
+mainSkill               Ice Spear
+usedModCache            true
+stores                  4
+
+== env.modDB (ModDB) ==
+mods 617 | conditions 57 | multipliers 110 | parent no
+  mod type              BASE 293, DUMMY 1, FLAG 71, INC 169, LIST 61, MAX 2, MORE 16, OVERRIDE 4
+  source                (empty) 1, (none) 5, 10 Diluting Touch Stacks 2, 10 Eroding Touch Stacks 1, 10 Paralysing Touch Stacks 1, 10 Wasting Touch Stacks 2, Arcane Surge 2, Bandit 1, Base 153, Boss 2, Config 38, Dexterity 2, Elusive 2, Intelligence 2, Item 157, Item Sockets 24, ManaRegen 1, Max Skill Effect 1, Onslaught 3, Quality 11, Skill 19, Strength 2, Tailwind 1, Tree 176, Tree23950 1, Tree31703 1, Unlinked Item Sockets 6
+  value kind            boolean 71, number 485, record 35, record{mod} 3, string 23
+  tag type              ActorCondition 10, Condition 122, Global 28, GlobalEffect 29, IgnoreCond 2, Multiplier 28, MultiplierThreshold 1, PerStat 1, SkillId 3, SkillName 10, SkillType 9, SlotName 1, SocketedIn 4
+  extra field           replaced 1, sourceSlot 150
+  tagged mods           206
+  flagged mods          33
+  keyword-flagged mods  17
+  unsourced mods        5
+  distinct mod names    263
+
+== env.enemyDB (ModDB) ==
+mods 148 | conditions 6 | multipliers 22 | parent no
+  mod type              BASE 69, FLAG 56, INC 17, MORE 6
+  source                (empty) 1, (none) 5, 15 Mania Stacks 4, Base 99, Boss 1, Brittle 1, Chill 2, Config 13, Consecrated Ground 3, EnemyConfig 4, Item 2, Sap 1, Scorch 1, Shock 1, Skill 10
+  value kind            boolean 56, number 92
+  tag type              ActorCondition 1, Condition 85, GlobalEffect 17, IgnoreCond 2, Multiplier 2, MultiplierThreshold 1
+  extra field           (none)
+  tagged mods           90
+  flagged mods          5
+  keyword-flagged mods  0
+  unsourced mods        5
+  distinct mod names    131
+
+== env.itemModDB (ModDB) ==
+mods 177 | conditions 15 | multipliers 81 | parent no
+  mod type              BASE 87, FLAG 5, INC 34, LIST 51
+  source                Item 141, Item Sockets 24, Quality 6, Unlinked Item Sockets 6
+  value kind            boolean 5, number 121, record 29, record{mod} 1, string 21
+  tag type              ActorCondition 5, Condition 6, Global 14, Multiplier 3, SkillName 1, SkillType 2, SlotName 1, SocketedIn 4
+  extra field           sourceSlot 140
+  tagged mods           35
+  flagged mods          8
+  keyword-flagged mods  11
+  unsourced mods        0
+  distinct mod names    70
+
+== env.player.mainSkill.skillModList (ModList) ==
+mods 3 | conditions 2 | multipliers 0 | parent yes
+  mod type              FLAG 3
+  source                Config 3
+  value kind            boolean 3
+  tag type              (none)
+  extra field           (none)
+  tagged mods           0
+  flagged mods          0
+  keyword-flagged mods  0
+  unsourced mods        0
+  distinct mod names    3
+
+== env.player.mainSkill.skillModList — full ModDB:Print() listing ==
+=== Modifiers ===
+'Condition:ChaosHasDamage':
+	true = FLAG|-|-|-|Config
+'Condition:ColdHasDamage':
+	true = FLAG|-|-|-|Config
+'Condition:ColdIsHighestDamageType':
+	true = FLAG|-|-|-|Config
+=== Conditions ===
+CritInPast8Sec
+SkillAccRatingHigherThanMaxLife
+=== Multipliers ===
