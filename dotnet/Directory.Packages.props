@@ -11,6 +11,16 @@
   </ItemGroup>
 
   <!--
+    Banned-API rule (migration ticket 02). Attached only to Pob.Core, Pob.Calc and
+    Pob.Parsing by Directory.Build.props; the version lives here because central package
+    management is on. Not a GlobalPackageReference: Pob.Rendering and Pob.App must stay free
+    of it so geometry code can keep calling Math.Floor.
+  -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0" />
+  </ItemGroup>
+
+  <!--
     UI stack. Only Pob.App and Pob.Rendering may reference these.
     Pob.Core must stay free of them (see docs/migration/tickets/01-solution-scaffold.md).
     SkiaSharp is pinned to the exact version Avalonia.Skia 11.3.7 resolves, so the
