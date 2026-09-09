@@ -1,0 +1,3384 @@
+{
+  "generator": "dotnet/tools/behaviour-keys/enumerate.lua",
+  "source": "src/Data",
+  "readMe": "Generated - do not hand-edit. Re-run the generator after a data update. Every entry under behaviours[] needs a matching line in Pob.Data/Behaviours/BehaviourRoster.cs; the MSBuild target in Pob.Data.csproj fails the build otherwise. Only behaviours[] entries carry a field named key, which is what that target greps for.",
+  "summary": {
+    "luaFilesScanned": 139,
+    "functionValues": 244,
+    "behaviourSites": 133,
+    "behaviourKeys": 103,
+    "declarativeEntries": 41,
+    "transcodeTimeFunctions": 20
+  },
+  "hooks": {
+    "apply": {
+      "delegate": "none - declarative",
+      "signature": "(val, [rollRange,] mapModEffect, [values,] modList, enemyModList)",
+      "callSite": "src/Modules/ConfigOptions.lua:122-126 (mapAffixDropDownFunction)",
+      "sites": 41
+    },
+    "explosiveArrowFunc": {
+      "delegate": "ExplosiveArrowBehaviour",
+      "signature": "(activeSkill, output, globalOutput, globalBreakdown, env)",
+      "callSite": "src/Modules/CalcOffence.lua:3038",
+      "sites": 1
+    },
+    "initialFunc": {
+      "delegate": "SkillBehaviour",
+      "signature": "(activeSkill, output, breakdown)",
+      "callSite": "src/Modules/CalcOffence.lua:516 via runSkillFunc",
+      "sites": 4
+    },
+    "legacyMod": {
+      "delegate": "none - transcode-time",
+      "signature": "(currentMod)",
+      "callSite": "src/Data/Uniques/Special/Generated.lua, at data load",
+      "sites": 8
+    },
+    "postCritFunc": {
+      "delegate": "SkillBehaviour",
+      "signature": "(activeSkill, output, breakdown)",
+      "callSite": "src/Modules/CalcOffence.lua:3315 via runSkillFunc",
+      "sites": 3
+    },
+    "preDamageFunc": {
+      "delegate": "SkillBehaviour",
+      "signature": "(activeSkill, output, breakdown)",
+      "callSite": "src/Modules/CalcOffence.lua:1908 via runSkillFunc",
+      "sites": 122
+    },
+    "preSkillTypeFunc": {
+      "delegate": "SkillBehaviour",
+      "signature": "(activeSkill, output, breakdown)",
+      "callSite": "src/Modules/CalcOffence.lua:1054 via runSkillFunc",
+      "sites": 3
+    }
+  },
+  "behaviours": [
+    {
+      "key": "AvengingFlamePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "bd9d33b5089b39dc",
+      "bodyLines": 9,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/sup_str.lua",
+          "line": 2540,
+          "endLine": 2548,
+          "owner": "skills.AvengingFlame"
+        }
+      ]
+    },
+    {
+      "key": "AzmeriHydraBarragePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "e5dfc13c96a6d93d",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/spectre.lua",
+          "line": 7277,
+          "endLine": 7279,
+          "owner": "skills.AzmeriHydraBarrage"
+        }
+      ]
+    },
+    {
+      "key": "BallLightningAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "de511baf79447c20",
+      "bodyLines": 24,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 1252,
+          "endLine": 1275,
+          "owner": "skills.BallLightningAltX"
+        }
+      ]
+    },
+    {
+      "key": "BallLightningAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "8856f583f209b8c3",
+      "bodyLines": 19,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 1375,
+          "endLine": 1393,
+          "owner": "skills.BallLightningAltY"
+        }
+      ]
+    },
+    {
+      "key": "BallLightningPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "1141cf9c791b93b3",
+      "bodyLines": 82,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 1086,
+          "endLine": 1167,
+          "owner": "skills.BallLightning"
+        }
+      ]
+    },
+    {
+      "key": "BaneAppliedCurseCount",
+      "hook": "preSkillTypeFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "104abbc4f0c428bc",
+      "bodyLines": 12,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 1470,
+          "endLine": 1481,
+          "owner": "skills.Bane"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 1647,
+          "endLine": 1658,
+          "owner": "skills.BaneAltX"
+        }
+      ]
+    },
+    {
+      "key": "BladeBlastPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "1faa3b7d206fc6d6",
+      "bodyLines": 6,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 1374,
+          "endLine": 1379,
+          "owner": "skills.BladeBlast"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 1466,
+          "endLine": 1471,
+          "owner": "skills.BladeBlastAltX"
+        }
+      ]
+    },
+    {
+      "key": "BladeFlurryPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "26ee5f98f48057b7",
+      "bodyLines": 11,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 1906,
+          "endLine": 1916,
+          "owner": "skills.BladeFlurry"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 2023,
+          "endLine": 2033,
+          "owner": "skills.BladeFlurryAltX"
+        }
+      ]
+    },
+    {
+      "key": "BladeVortexPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "908883e5531bf66f",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 2209,
+          "endLine": 2211,
+          "owner": "skills.BladeVortex"
+        }
+      ]
+    },
+    {
+      "key": "BladefallAltZPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "32313fa2aac1d6fe",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 2787,
+          "endLine": 2789,
+          "owner": "skills.BladefallAltZ"
+        }
+      ]
+    },
+    {
+      "key": "BlazingSalvoPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "f2fec4600cbd1612",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 1823,
+          "endLine": 1827,
+          "owner": "skills.BlazingSalvo"
+        }
+      ]
+    },
+    {
+      "key": "BloodSacramentUniqueInitial",
+      "hook": "initialFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "36b99a3c11452e9f",
+      "bodyLines": 9,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/other.lua",
+          "line": 669,
+          "endLine": 677,
+          "owner": "skills.BloodSacramentUnique"
+        }
+      ]
+    },
+    {
+      "key": "BodyswapPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "10a78401ec2e41b5",
+      "bodyLines": 12,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 2298,
+          "endLine": 2309,
+          "owner": "skills.Bodyswap"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 2413,
+          "endLine": 2424,
+          "owner": "skills.BodyswapAltX"
+        }
+      ]
+    },
+    {
+      "key": "BrandActivationFrequency",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "55a58a4d86e8bdb1",
+      "bodyLines": 3,
+      "siteCount": 7,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 552,
+          "endLine": 554,
+          "owner": "skills.BrandSupport"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 715,
+          "endLine": 717,
+          "owner": "skills.ArmageddonBrand"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 895,
+          "endLine": 897,
+          "owner": "skills.ArmageddonBrandAltY"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 13901,
+          "endLine": 13903,
+          "owner": "skills.PenanceBrandAltX"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 14015,
+          "endLine": 14017,
+          "owner": "skills.PenanceBrandAltY"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 17373,
+          "endLine": 17375,
+          "owner": "skills.StormBrand"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 17470,
+          "endLine": 17472,
+          "owner": "skills.StormBrandAltX"
+        }
+      ]
+    },
+    {
+      "key": "ChargedDashAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "3d43c426298e3e0a",
+      "bodyLines": 6,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 4064,
+          "endLine": 4069,
+          "owner": "skills.ChargedDashAltX"
+        }
+      ]
+    },
+    {
+      "key": "ChargedDashPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "1c6bd6d0b8e7f7bf",
+      "bodyLines": 6,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 3939,
+          "endLine": 3944,
+          "owner": "skills.ChargedDash"
+        }
+      ]
+    },
+    {
+      "key": "CremationAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "60bb9be43fbf086e",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 4592,
+          "endLine": 4594,
+          "owner": "skills.CremationAltY"
+        }
+      ]
+    },
+    {
+      "key": "CremationPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "cd18197eff351dbd",
+      "bodyLines": 5,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 4355,
+          "endLine": 4359,
+          "owner": "skills.Cremation"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 4473,
+          "endLine": 4477,
+          "owner": "skills.CremationAltX"
+        }
+      ]
+    },
+    {
+      "key": "CycloneAltXInitial",
+      "hook": "initialFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "65c432495f29a8a7",
+      "bodyLines": 14,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 4809,
+          "endLine": 4822,
+          "owner": "skills.CycloneAltX"
+        }
+      ]
+    },
+    {
+      "key": "CycloneInitial",
+      "hook": "initialFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "d81183d9aa9adb30",
+      "bodyLines": 14,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 4703,
+          "endLine": 4716,
+          "owner": "skills.Cyclone"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 4934,
+          "endLine": 4947,
+          "owner": "skills.VaalCyclone"
+        }
+      ]
+    },
+    {
+      "key": "DarkPactAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "60d9ebb7585b6c6e",
+      "bodyLines": 17,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 4006,
+          "endLine": 4022,
+          "owner": "skills.DarkPactAltX"
+        }
+      ]
+    },
+    {
+      "key": "DarkPactPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "87a0f824203fbbab",
+      "bodyLines": 15,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 3889,
+          "endLine": 3903,
+          "owner": "skills.DarkPact"
+        }
+      ]
+    },
+    {
+      "key": "DeathWishPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "4adc5ef9136b05d4",
+      "bodyLines": 7,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/other.lua",
+          "line": 1282,
+          "endLine": 1288,
+          "owner": "skills.DeathWish"
+        }
+      ]
+    },
+    {
+      "key": "DivineIreAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "79e43724597616e5",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 4712,
+          "endLine": 4716,
+          "owner": "skills.DivineIreAltX"
+        }
+      ]
+    },
+    {
+      "key": "DivineIreAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "e0aa5d10887ef339",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 4823,
+          "endLine": 4825,
+          "owner": "skills.DivineIreAltY"
+        }
+      ]
+    },
+    {
+      "key": "DivineIrePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "5c1b7650263da6b4",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 4602,
+          "endLine": 4606,
+          "owner": "skills.DivineIre"
+        }
+      ]
+    },
+    {
+      "key": "DpsMultiplierFloorOfOne",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "000c7c11684fa822",
+      "bodyLines": 3,
+      "siteCount": 3,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 8304,
+          "endLine": 8306,
+          "owner": "skills.Perforate"
+        },
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 8400,
+          "endLine": 8402,
+          "owner": "skills.PerforateAltX"
+        },
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 8501,
+          "endLine": 8503,
+          "owner": "skills.PerforateAltY"
+        }
+      ]
+    },
+    {
+      "key": "DurationOverlapDpsMultiplier",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "ce593358c9a957a4",
+      "bodyLines": 7,
+      "siteCount": 3,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 16721,
+          "endLine": 16727,
+          "owner": "skills.Spark"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 16811,
+          "endLine": 16817,
+          "owner": "skills.SparkAltX"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 16902,
+          "endLine": 16908,
+          "owner": "skills.SparkAltY"
+        }
+      ]
+    },
+    {
+      "key": "EarthquakePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "1d52d2105013f130",
+      "bodyLines": 4,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 3363,
+          "endLine": 3366,
+          "owner": "skills.Earthquake"
+        }
+      ]
+    },
+    {
+      "key": "EnemyExplodePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "147a3e993b6b51f2",
+      "bodyLines": 49,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/other.lua",
+          "line": 6204,
+          "endLine": 6252,
+          "owner": "skills.EnemyExplode"
+        }
+      ]
+    },
+    {
+      "key": "ExplosiveArrowFuseStacking",
+      "hook": "explosiveArrowFunc",
+      "delegate": "ExplosiveArrowBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "9f5dcab763d060af",
+      "bodyLines": 80,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 6699,
+          "endLine": 6778,
+          "owner": "skills.ExplosiveArrow"
+        }
+      ]
+    },
+    {
+      "key": "ExplosiveTrapPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "f5054676760125d9",
+      "bodyLines": 66,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 7156,
+          "endLine": 7221,
+          "owner": "skills.ExplosiveTrap"
+        }
+      ]
+    },
+    {
+      "key": "EyeOfWinterAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "37195bfd6f4bd662",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 5611,
+          "endLine": 5613,
+          "owner": "skills.EyeOfWinterAltX"
+        }
+      ]
+    },
+    {
+      "key": "EyeOfWinterAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "7b903f5ee269117f",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 5704,
+          "endLine": 5706,
+          "owner": "skills.EyeOfWinterAltY"
+        }
+      ]
+    },
+    {
+      "key": "EyeOfWinterPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "8d3edb40ccc0f3c1",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 5518,
+          "endLine": 5520,
+          "owner": "skills.EyeOfWinter"
+        }
+      ]
+    },
+    {
+      "key": "FlameblastAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "c725d446c88ed1b6",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 6905,
+          "endLine": 6907,
+          "owner": "skills.FlameblastAltX"
+        }
+      ]
+    },
+    {
+      "key": "FlameblastAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "6a300f73fd63cda3",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 7008,
+          "endLine": 7010,
+          "owner": "skills.FlameblastAltY"
+        }
+      ]
+    },
+    {
+      "key": "FlameblastPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "84e313a8c5e8da36",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 6800,
+          "endLine": 6802,
+          "owner": "skills.Flameblast"
+        }
+      ]
+    },
+    {
+      "key": "FlamethrowerTrapAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "e71773387b1b1d4a",
+      "bodyLines": 19,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 7809,
+          "endLine": 7827,
+          "owner": "skills.FlamethrowerTrapAltX"
+        }
+      ]
+    },
+    {
+      "key": "FlamethrowerTrapPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "f596e39112162346",
+      "bodyLines": 27,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 7691,
+          "endLine": 7717,
+          "owner": "skills.FlamethrowerTrap"
+        }
+      ]
+    },
+    {
+      "key": "ForbiddenRiteAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "aa2be17cb0a1e683",
+      "bodyLines": 41,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 7549,
+          "endLine": 7589,
+          "owner": "skills.ForbiddenRiteAltX"
+        }
+      ]
+    },
+    {
+      "key": "ForbiddenRitePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "195e30cf8ebf9d9c",
+      "bodyLines": 45,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 7390,
+          "endLine": 7434,
+          "owner": "skills.ForbiddenRite"
+        }
+      ]
+    },
+    {
+      "key": "FreezingPulsePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "1773bd63a6d4614c",
+      "bodyLines": 4,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 7686,
+          "endLine": 7689,
+          "owner": "skills.FreezingPulse"
+        }
+      ]
+    },
+    {
+      "key": "FrostBombAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "04a31e6032ce513b",
+      "bodyLines": 4,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 7933,
+          "endLine": 7936,
+          "owner": "skills.FrostBombAltY"
+        }
+      ]
+    },
+    {
+      "key": "FrozenSweepAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "0938b82a6efa40d1",
+      "bodyLines": 35,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 4797,
+          "endLine": 4831,
+          "owner": "skills.FrozenSweepAltX"
+        }
+      ]
+    },
+    {
+      "key": "FrozenSweepPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "6257288c34b5da14",
+      "bodyLines": 35,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 4679,
+          "endLine": 4713,
+          "owner": "skills.FrozenSweep"
+        }
+      ]
+    },
+    {
+      "key": "GAZombieCorpseGroundImpactPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "2bb15d2327845a8f",
+      "bodyLines": 3,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/minion.lua",
+          "line": 756,
+          "endLine": 758,
+          "owner": "skills.GAZombieCorpseGroundImpact"
+        },
+        {
+          "file": "src/Data/Skills/minion.lua",
+          "line": 1756,
+          "endLine": 1758,
+          "owner": "skills.MinionInstability"
+        }
+      ]
+    },
+    {
+      "key": "HeraldOfAshPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "08eccda089e6fc97",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 5743,
+          "endLine": 5745,
+          "owner": "skills.HeraldOfAsh"
+        }
+      ]
+    },
+    {
+      "key": "HeraldOfTheBreachPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "45dd8b7fa3e9b0f8",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/other.lua",
+          "line": 2258,
+          "endLine": 2260,
+          "owner": "skills.HeraldOfTheBreach"
+        }
+      ]
+    },
+    {
+      "key": "HeraldOfThunderPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "2e104f744b11d9e4",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 9383,
+          "endLine": 9385,
+          "owner": "skills.HeraldOfThunder"
+        }
+      ]
+    },
+    {
+      "key": "HitTimeOverrideFromCooldown",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "1470b2dc7d4a5c70",
+      "bodyLines": 3,
+      "siteCount": 3,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20542,
+          "endLine": 20544,
+          "owner": "skills.Vortex"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20629,
+          "endLine": 20631,
+          "owner": "skills.VortexAltX"
+        },
+        {
+          "file": "src/Data/Skills/other.lua",
+          "line": 2596,
+          "endLine": 2598,
+          "owner": "skills.LightningBolt"
+        }
+      ]
+    },
+    {
+      "key": "HitTimeOverrideFromRepeatFrequency",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "35640df8a4f3561d",
+      "bodyLines": 3,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 8543,
+          "endLine": 8545,
+          "owner": "skills.GalvanicField"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 8663,
+          "endLine": 8665,
+          "owner": "skills.GalvanicFieldAltX"
+        }
+      ]
+    },
+    {
+      "key": "HydrospherePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "919d415be5ea8c68",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 8972,
+          "endLine": 8976,
+          "owner": "skills.Hydrosphere"
+        }
+      ]
+    },
+    {
+      "key": "IceSpearPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "e7aff781ee1e4791",
+      "bodyLines": 5,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 9805,
+          "endLine": 9809,
+          "owner": "skills.IceSpear"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 9915,
+          "endLine": 9919,
+          "owner": "skills.IceSpearAltX"
+        }
+      ]
+    },
+    {
+      "key": "IncinerateAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "473bbbf42352dd62",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 10422,
+          "endLine": 10426,
+          "owner": "skills.IncinerateAltX"
+        }
+      ]
+    },
+    {
+      "key": "IncinerateAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "d8b68c914f1ad115",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 10561,
+          "endLine": 10565,
+          "owner": "skills.IncinerateAltY"
+        }
+      ]
+    },
+    {
+      "key": "IncineratePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "993ac6126bae1947",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 10284,
+          "endLine": 10288,
+          "owner": "skills.Incinerate"
+        }
+      ]
+    },
+    {
+      "key": "InfernalBlowAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "8c80cce2c788609c",
+      "bodyLines": 9,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 7241,
+          "endLine": 7249,
+          "owner": "skills.InfernalBlowAltX"
+        }
+      ]
+    },
+    {
+      "key": "InfernalBlowPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "ad661b1e6fa578d5",
+      "bodyLines": 9,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 7115,
+          "endLine": 7123,
+          "owner": "skills.InfernalBlow"
+        }
+      ]
+    },
+    {
+      "key": "KineticFusilladeAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "de36ab9eca0f3b7e",
+      "bodyLines": 37,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11227,
+          "endLine": 11263,
+          "owner": "skills.KineticFusilladeAltX"
+        }
+      ]
+    },
+    {
+      "key": "KineticFusilladePostCrit",
+      "hook": "postCritFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "881bf17f39dcad32",
+      "bodyLines": 78,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11046,
+          "endLine": 11123,
+          "owner": "skills.KineticFusillade"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11264,
+          "endLine": 11341,
+          "owner": "skills.KineticFusilladeAltX"
+        }
+      ]
+    },
+    {
+      "key": "KineticFusilladePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "60b5e3e452495e63",
+      "bodyLines": 37,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11009,
+          "endLine": 11045,
+          "owner": "skills.KineticFusillade"
+        }
+      ]
+    },
+    {
+      "key": "LancingSteelAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "bf5daf2ecd735e70",
+      "bodyLines": 8,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 10337,
+          "endLine": 10344,
+          "owner": "skills.LancingSteelAltX"
+        }
+      ]
+    },
+    {
+      "key": "LancingSteelPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "f113ed01ec1eca4b",
+      "bodyLines": 8,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 10234,
+          "endLine": 10241,
+          "owner": "skills.LancingSteel"
+        }
+      ]
+    },
+    {
+      "key": "LightningSpireTrapAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "05657358b5951803",
+      "bodyLines": 117,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11912,
+          "endLine": 12028,
+          "owner": "skills.LightningSpireTrapAltX"
+        }
+      ]
+    },
+    {
+      "key": "LightningSpireTrapAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "c23dd0236cbd606d",
+      "bodyLines": 111,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 12150,
+          "endLine": 12260,
+          "owner": "skills.LightningSpireTrapAltY"
+        }
+      ]
+    },
+    {
+      "key": "LightningSpireTrapPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "4e229e8c2fa25a85",
+      "bodyLines": 122,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11667,
+          "endLine": 11788,
+          "owner": "skills.LightningSpireTrap"
+        }
+      ]
+    },
+    {
+      "key": "LightningTendrilsAltXPostCrit",
+      "hook": "postCritFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "8034b39dd83c2ce6",
+      "bodyLines": 12,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 12651,
+          "endLine": 12662,
+          "owner": "skills.LightningTendrilsAltX"
+        }
+      ]
+    },
+    {
+      "key": "LightningTendrilsAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "213577db73ae07c4",
+      "bodyLines": 9,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 12642,
+          "endLine": 12650,
+          "owner": "skills.LightningTendrilsAltX"
+        }
+      ]
+    },
+    {
+      "key": "ManabondPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "b928ba82528d2e65",
+      "bodyLines": 6,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 13527,
+          "endLine": 13532,
+          "owner": "skills.Manabond"
+        }
+      ]
+    },
+    {
+      "key": "MoltenShellPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "6bbeceffb9943c9c",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 7599,
+          "endLine": 7603,
+          "owner": "skills.MoltenShell"
+        }
+      ]
+    },
+    {
+      "key": "MoltenStrikeAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "e66030fe01c1b233",
+      "bodyLines": 72,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 8011,
+          "endLine": 8082,
+          "owner": "skills.MoltenStrikeAltX"
+        }
+      ]
+    },
+    {
+      "key": "MoltenStrikePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "0bc7e0be3a682ec9",
+      "bodyLines": 51,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 7832,
+          "endLine": 7882,
+          "owner": "skills.MoltenStrike"
+        }
+      ]
+    },
+    {
+      "key": "OrbOfStormsPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "4000aa0cc8ae7932",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 13621,
+          "endLine": 13623,
+          "owner": "skills.OrbOfStorms"
+        }
+      ]
+    },
+    {
+      "key": "PenanceBrandPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "0f618fb552227388",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 13809,
+          "endLine": 13811,
+          "owner": "skills.PenanceBrand"
+        }
+      ]
+    },
+    {
+      "key": "PodOverlapDpsMultiplier",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "4cc2f318d0b5c745",
+      "bodyLines": 3,
+      "siteCount": 3,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 14935,
+          "endLine": 14937,
+          "owner": "skills.ToxicRain"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 15027,
+          "endLine": 15029,
+          "owner": "skills.ToxicRainAltX"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 15116,
+          "endLine": 15118,
+          "owner": "skills.ToxicRainAltY"
+        }
+      ]
+    },
+    {
+      "key": "PoisonousConcoctionPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "93ff3a4e3c3c0b53",
+      "bodyLines": 6,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 17423,
+          "endLine": 17428,
+          "owner": "skills.PoisonousConcoction"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 17524,
+          "endLine": 17529,
+          "owner": "skills.PoisonousConcoctionAltX"
+        }
+      ]
+    },
+    {
+      "key": "ProjectileCountDpsMultiplierOnSecondPart",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "semantic",
+      "bodyHash": "916ea2023cd19543",
+      "bodyLines": 5,
+      "siteCount": 4,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 1026,
+          "endLine": 1030,
+          "owner": "skills.Barrage"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 1114,
+          "endLine": 1118,
+          "owner": "skills.BarrageAltX"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 2893,
+          "endLine": 2897,
+          "owner": "skills.BlastRain"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 10590,
+          "endLine": 10594,
+          "owner": "skills.VaalLightningArrow"
+        }
+      ]
+    },
+    {
+      "key": "RageVortexPreSkillType",
+      "hook": "preSkillTypeFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "9975106bcb0f2d5e",
+      "bodyLines": 10,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 9082,
+          "endLine": 9091,
+          "owner": "skills.RageVortex"
+        }
+      ]
+    },
+    {
+      "key": "RighteousFireAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "4d8a153661410ca7",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 15533,
+          "endLine": 15537,
+          "owner": "skills.RighteousFireAltX"
+        }
+      ]
+    },
+    {
+      "key": "RighteousFirePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "5a2e731c2b50c068",
+      "bodyLines": 7,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 15428,
+          "endLine": 15434,
+          "owner": "skills.RighteousFire"
+        }
+      ]
+    },
+    {
+      "key": "ScourgeArrowPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "fb4bfe41100aac38",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 12990,
+          "endLine": 12992,
+          "owner": "skills.ScourgeArrow"
+        }
+      ]
+    },
+    {
+      "key": "SeismicTrapAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "dd72db801145ea45",
+      "bodyLines": 50,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 13622,
+          "endLine": 13671,
+          "owner": "skills.SeismicTrapAltX"
+        }
+      ]
+    },
+    {
+      "key": "SeismicTrapPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "adfe01fad633a5d1",
+      "bodyLines": 116,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 13381,
+          "endLine": 13496,
+          "owner": "skills.SeismicTrap"
+        }
+      ]
+    },
+    {
+      "key": "ShrapnelBallistaPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "ab5923296ac52e95",
+      "bodyLines": 9,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 13779,
+          "endLine": 13787,
+          "owner": "skills.ShrapnelBallista"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 13867,
+          "endLine": 13875,
+          "owner": "skills.ShrapnelBallistaAltX"
+        }
+      ]
+    },
+    {
+      "key": "StaticStrikePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "b9a9d498ab267473",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 10726,
+          "endLine": 10730,
+          "owner": "skills.StaticStrike"
+        }
+      ]
+    },
+    {
+      "key": "StormBurstAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "aa883b651dfad4bb",
+      "bodyLines": 7,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 18151,
+          "endLine": 18157,
+          "owner": "skills.StormBurstAltX"
+        }
+      ]
+    },
+    {
+      "key": "StormBurstPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "4ff7f5f6c75603bb",
+      "bodyLines": 13,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 18036,
+          "endLine": 18048,
+          "owner": "skills.StormBurst"
+        }
+      ]
+    },
+    {
+      "key": "StormRainAltXPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "e6e36f341aabb562",
+      "bodyLines": 6,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 11851,
+          "endLine": 11856,
+          "owner": "skills.StormRainAltX"
+        }
+      ]
+    },
+    {
+      "key": "StormRainAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "3d00e62cf152482d",
+      "bodyLines": 7,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 11958,
+          "endLine": 11964,
+          "owner": "skills.StormRainAltY"
+        }
+      ]
+    },
+    {
+      "key": "StormRainPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "c4dfa0fe9601c9b3",
+      "bodyLines": 6,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 11747,
+          "endLine": 11752,
+          "owner": "skills.StormRain"
+        }
+      ]
+    },
+    {
+      "key": "TornadoAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "f2f1221c651ed1ec",
+      "bodyLines": 4,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 18127,
+          "endLine": 18130,
+          "owner": "skills.TornadoAltY"
+        }
+      ]
+    },
+    {
+      "key": "TornadoPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "2ba48ead0c88abbc",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 18034,
+          "endLine": 18036,
+          "owner": "skills.Tornado"
+        }
+      ]
+    },
+    {
+      "key": "TornadoShotPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "41217eace687aac8",
+      "bodyLines": 12,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 16051,
+          "endLine": 16062,
+          "owner": "skills.TornadoShot"
+        }
+      ]
+    },
+    {
+      "key": "VaalBladeVortexPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "97c0a1cde2c937b1",
+      "bodyLines": 3,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 2428,
+          "endLine": 2430,
+          "owner": "skills.VaalBladeVortex"
+        }
+      ]
+    },
+    {
+      "key": "VaalMoltenShellPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "958fcc9dc4306680",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 7701,
+          "endLine": 7705,
+          "owner": "skills.VaalMoltenShell"
+        }
+      ]
+    },
+    {
+      "key": "VaalRighteousFirePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "f7a55b725836c898",
+      "bodyLines": 7,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 15625,
+          "endLine": 15631,
+          "owner": "skills.VaalRighteousFire"
+        }
+      ]
+    },
+    {
+      "key": "VoidSpherePreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "0164e1d68bb45848",
+      "bodyLines": 3,
+      "siteCount": 2,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20267,
+          "endLine": 20269,
+          "owner": "skills.VoidSphere"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20356,
+          "endLine": 20358,
+          "owner": "skills.VoidSphereAltX"
+        }
+      ]
+    },
+    {
+      "key": "VoltaxicBurstPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "0c94617f504993f0",
+      "bodyLines": 4,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20445,
+          "endLine": 20448,
+          "owner": "skills.VoltaxicBurst"
+        }
+      ]
+    },
+    {
+      "key": "WaveOfConvictionAltYPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "dc7ebf140e46e231",
+      "bodyLines": 6,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20889,
+          "endLine": 20894,
+          "owner": "skills.WaveOfConvictionAltY"
+        }
+      ]
+    },
+    {
+      "key": "WaveOfConvictionPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "6b48079702c4ef6b",
+      "bodyLines": 6,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20795,
+          "endLine": 20800,
+          "owner": "skills.WaveOfConviction"
+        }
+      ]
+    },
+    {
+      "key": "WinterOrbPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "95fd120ee83409fb",
+      "bodyLines": 5,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 20983,
+          "endLine": 20987,
+          "owner": "skills.WinterOrb"
+        }
+      ]
+    },
+    {
+      "key": "WintertideBrandPreDamage",
+      "hook": "preDamageFunc",
+      "delegate": "SkillBehaviour",
+      "nameSource": "owner+hook",
+      "bodyHash": "f3ec0dbdb10675c7",
+      "bodyLines": 25,
+      "siteCount": 1,
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 21107,
+          "endLine": 21131,
+          "owner": "skills.WintertideBrand"
+        }
+      ]
+    }
+  ],
+  "declarative": {
+    "note": "ModMap.AffixData[*].apply lifted to data: a sequence of NewMod calls with no control flow. Ticket 03 emits these as rows and no code is generated for them. Three fields beyond the {name, type, value, source} shape the ticket sketched are load-bearing: target, because 18 of the mods go to the player mod list and not to the enemy; extraArgs, which carries mod tags such as ModFlag.Attack or a Condition tag table verbatim; and valueShape. valueShape is the value expression with indices and literals removed - see valueShapes below. Every value in the file is one of a handful of shapes (a flag, a literal, a table lookup times mapModEffect, or a roll interpolated between two values), so the config layer needs a small closed set of value kinds rather than a Lua expression evaluator.",
+    "callSignature": "(val, [rollRange,] mapModEffect, [values,] modList, enemyModList)",
+    "valueShapes": {
+      "(V + (V - V) * rollRange / N) * mapModEffect": 11,
+      "-(V + (V - V) * rollRange / N) * mapModEffect": 1,
+      "-V * mapModEffect": 11,
+      "-roll": 4,
+      "N": 4,
+      "V * mapModEffect": 15,
+      "true": 9
+    },
+    "entries": [
+      {
+        "id": "Armoured",
+        "file": "src/Data/ModMap.lua",
+        "line": 12,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "PhysicalDamageReduction",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Armoured",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Buffered",
+        "file": "src/Data/ModMap.lua",
+        "line": 91,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "LifeGainAsEnergyShield",
+            "type": "BASE",
+            "valueExpr": "(values[val][1] + (values[val][2] - values[val][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Buffered",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Burning",
+        "file": "src/Data/ModMap.lua",
+        "line": 117,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "PhysicalDamageGainAsFire",
+            "type": "BASE",
+            "valueExpr": "(values[val][1] + (values[val][2] - values[val][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Burning",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Conflagrating",
+        "file": "src/Data/ModMap.lua",
+        "line": 158,
+        "type": "check",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "IgniteChance",
+            "type": "BASE",
+            "valueExpr": "100",
+            "valueShape": "N",
+            "source": "Map mod Conflagrating",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "AllDamageIgnites",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod Conflagrating",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Empowered",
+        "file": "src/Data/ModMap.lua",
+        "line": 175,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "ElementalAilmentChance",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Empowered",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Fecund",
+        "file": "src/Data/ModMap.lua",
+        "line": 56,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "Life",
+            "type": "MORE",
+            "valueExpr": "(values[val][1] + (values[val][2] - values[val][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Fecund",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Fleet",
+        "file": "src/Data/ModMap.lua",
+        "line": 150,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "Speed",
+            "type": "INC",
+            "valueExpr": "(values[val][2][1] + (values[val][2][2] - values[val][2][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Fleet",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Freezing",
+        "file": "src/Data/ModMap.lua",
+        "line": 125,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "PhysicalDamageGainAsCold",
+            "type": "BASE",
+            "valueExpr": "(values[val][1] + (values[val][2] - values[val][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Freezing",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Hexproof",
+        "file": "src/Data/ModMap.lua",
+        "line": 20,
+        "type": "check",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "Hexproof",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod Hexproof",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Hexwarded",
+        "file": "src/Data/ModMap.lua",
+        "line": 29,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "CurseEffectOnSelf",
+            "type": "MORE",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod Hexwarded",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Impaling",
+        "file": "src/Data/ModMap.lua",
+        "line": 167,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "ImpaleChance",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Impaling",
+            "extraArgs": [
+              "ModFlag.Attack"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Impervious",
+        "file": "src/Data/ModMap.lua",
+        "line": 73,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "AvoidPoison",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Impervious",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "AvoidImpale",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Impervious",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "AvoidBleed",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Impervious",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Mirrored",
+        "file": "src/Data/ModMap.lua",
+        "line": 200,
+        "type": "list",
+        "declarative": true,
+        "mods": []
+      },
+      {
+        "id": "Oppressive",
+        "file": "src/Data/ModMap.lua",
+        "line": 83,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "SpellSuppressionChance",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Oppressive",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Overlord\u0027s",
+        "file": "src/Data/ModMap.lua",
+        "line": 183,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "Damage",
+            "type": "INC",
+            "valueExpr": "values[val][1] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Overlord\u0027s",
+            "extraArgs": [
+              "{ type = \u0022Condition\u0022, var = \u0022RareOrUnique\u0022 }"
+            ]
+          },
+          {
+            "target": "enemyModList",
+            "name": "Speed",
+            "type": "INC",
+            "valueExpr": "values[val][2] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Overlord\u0027s",
+            "extraArgs": [
+              "{ type = \u0022Condition\u0022, var = \u0022RareOrUnique\u0022 }"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Profane",
+        "file": "src/Data/ModMap.lua",
+        "line": 141,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "PhysicalDamageGainAsChaos",
+            "type": "BASE",
+            "valueExpr": "(values[val][1][1] + (values[val][1][2] - values[val][1][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Profane",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "Condition:CanBeWithered",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod Profane",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Punishing",
+        "file": "src/Data/ModMap.lua",
+        "line": 193,
+        "type": "list",
+        "declarative": true,
+        "mods": []
+      },
+      {
+        "id": "Resistant",
+        "file": "src/Data/ModMap.lua",
+        "line": 38,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "ElementalResist",
+            "type": "BASE",
+            "valueExpr": "values[val][1] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Resistant",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "ChaosResist",
+            "type": "BASE",
+            "valueExpr": "values[val][2] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Resistant",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Savage",
+        "file": "src/Data/ModMap.lua",
+        "line": 109,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "Damage",
+            "type": "INC",
+            "valueExpr": "(values[val][1] + (values[val][2] - values[val][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Savage",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Shocking",
+        "file": "src/Data/ModMap.lua",
+        "line": 133,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "PhysicalDamageGainAsLightning",
+            "type": "BASE",
+            "valueExpr": "(values[val][1] + (values[val][2] - values[val][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Shocking",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Titan\u0027s",
+        "file": "src/Data/ModMap.lua",
+        "line": 99,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "Life",
+            "type": "MORE",
+            "valueExpr": "values[val][1] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Titan\u0027s",
+            "extraArgs": [
+              "{ type = \u0022Condition\u0022, var = \u0022RareOrUnique\u0022 }"
+            ]
+          },
+          {
+            "target": "enemyModList",
+            "name": "AreaOfEffect",
+            "type": "INC",
+            "valueExpr": "values[val][2] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod Titan\u0027s",
+            "extraArgs": [
+              "{ type = \u0022Condition\u0022, var = \u0022RareOrUnique\u0022 }"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unstoppable",
+        "file": "src/Data/ModMap.lua",
+        "line": 64,
+        "type": "check",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "MinimumActionSpeed",
+            "type": "MAX",
+            "valueExpr": "100",
+            "valueShape": "N",
+            "source": "Map mod Unstoppable",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "Unwavering",
+        "file": "src/Data/ModMap.lua",
+        "line": 47,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "AvoidStun",
+            "type": "BASE",
+            "valueExpr": "100",
+            "valueShape": "N",
+            "source": "Map mod Unwavering",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "Life",
+            "type": "MORE",
+            "valueExpr": "(values[val][1][1] + (values[val][1][2] - values[val][1][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod Unwavering",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Balance",
+        "file": "src/Data/ModMap.lua",
+        "line": 208,
+        "type": "check",
+        "declarative": true,
+        "mods": []
+      },
+      {
+        "id": "of Blinding",
+        "file": "src/Data/ModMap.lua",
+        "line": 349,
+        "type": "check",
+        "declarative": true,
+        "mods": []
+      },
+      {
+        "id": "of Congealment",
+        "file": "src/Data/ModMap.lua",
+        "line": 217,
+        "type": "check",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "CannotLeechLifeFromSelf",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod of Congealment",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "CannotLeechManaFromSelf",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod of Congealment",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "CannotLeechEnergyShieldFromSelf",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod of Congealment",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Deadliness",
+        "file": "src/Data/ModMap.lua",
+        "line": 364,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "CritChance",
+            "type": "INC",
+            "valueExpr": "(values[val][1][1] + (values[val][1][2] - values[val][1][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod of Deadliness",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "CritMultiplier",
+            "type": "BASE",
+            "valueExpr": "(values[val][2][1] + (values[val][2][2] - values[val][2][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod of Deadliness",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Doubt",
+        "file": "src/Data/ModMap.lua",
+        "line": 334,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "AuraEffect",
+            "type": "INC",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Doubt",
+            "extraArgs": [
+              "{ type = \u0022SkillType\u0022, skillType = SkillType.Aura }",
+              "{ type = \u0022SkillType\u0022, skillType = SkillType.AppliesCurse, neg = true }"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "of Drought",
+        "file": "src/Data/ModMap.lua",
+        "line": 228,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "FlaskChargesGained",
+            "type": "INC",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Drought",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Exposure",
+        "file": "src/Data/ModMap.lua",
+        "line": 238,
+        "type": "count",
+        "declarative": false,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "FireResistMax",
+            "type": "BASE",
+            "valueExpr": "-roll",
+            "valueShape": "-roll",
+            "source": "Map mod of Exposure",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "ColdResistMax",
+            "type": "BASE",
+            "valueExpr": "-roll",
+            "valueShape": "-roll",
+            "source": "Map mod of Exposure",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "LightningResistMax",
+            "type": "BASE",
+            "valueExpr": "-roll",
+            "valueShape": "-roll",
+            "source": "Map mod of Exposure",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "ChaosResistMax",
+            "type": "BASE",
+            "valueExpr": "-roll",
+            "valueShape": "-roll",
+            "source": "Map mod of Exposure",
+            "extraArgs": []
+          }
+        ],
+        "notDeclarativeBecause": "line 239: if values[val][2] ~= 0 then"
+      },
+      {
+        "id": "of Fatigue",
+        "file": "src/Data/ModMap.lua",
+        "line": 319,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "CooldownRecovery",
+            "type": "MORE",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Fatigue",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Impotence",
+        "file": "src/Data/ModMap.lua",
+        "line": 253,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "AreaOfEffect",
+            "type": "MORE",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Impotence",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Imprecision",
+        "file": "src/Data/ModMap.lua",
+        "line": 342,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "Accuracy",
+            "type": "MORE",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Imprecision",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Insulation",
+        "file": "src/Data/ModMap.lua",
+        "line": 262,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "AvoidElementalAilments",
+            "type": "BASE",
+            "valueExpr": "values[val] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod of Insulation",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Miring",
+        "file": "src/Data/ModMap.lua",
+        "line": 271,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "SpellSuppressionEffect",
+            "type": "BASE",
+            "valueExpr": "-values[val][1] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Miring",
+            "extraArgs": []
+          },
+          {
+            "target": "enemyModList",
+            "name": "Accuracy",
+            "type": "INC",
+            "valueExpr": "values[val][2] * mapModEffect",
+            "valueShape": "V * mapModEffect",
+            "source": "Map mod of Miring",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Rust",
+        "file": "src/Data/ModMap.lua",
+        "line": 282,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "BlockChance",
+            "type": "INC",
+            "valueExpr": "-values[val][1] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Rust",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "Armour",
+            "type": "MORE",
+            "valueExpr": "-values[val][2] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Rust",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Smothering",
+        "file": "src/Data/ModMap.lua",
+        "line": 292,
+        "type": "list",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "LifeRecoveryRate",
+            "type": "MORE",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Smothering",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "EnergyShieldRecoveryRate",
+            "type": "MORE",
+            "valueExpr": "-values[val] * mapModEffect",
+            "valueShape": "-V * mapModEffect",
+            "source": "Map mod of Smothering",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Stasis",
+        "file": "src/Data/ModMap.lua",
+        "line": 301,
+        "type": "check",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "modList",
+            "name": "NoLifeRegen",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod of Stasis",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "NoEnergyShieldRegen",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod of Stasis",
+            "extraArgs": []
+          },
+          {
+            "target": "modList",
+            "name": "NoManaRegen",
+            "type": "FLAG",
+            "valueExpr": "true",
+            "valueShape": "true",
+            "source": "Map mod of Stasis",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Toughness",
+        "file": "src/Data/ModMap.lua",
+        "line": 311,
+        "type": "count",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "SelfCritMultiplier",
+            "type": "INC",
+            "valueExpr": "-(values[val][1] + (values[val][2] - values[val][1]) * rollRange / 100) * mapModEffect",
+            "valueShape": "-(V + (V - V) * rollRange / N) * mapModEffect",
+            "source": "Map mod of Toughness",
+            "extraArgs": []
+          }
+        ]
+      },
+      {
+        "id": "of Transience",
+        "file": "src/Data/ModMap.lua",
+        "line": 327,
+        "type": "list",
+        "declarative": true,
+        "mods": []
+      },
+      {
+        "id": "of Venom",
+        "file": "src/Data/ModMap.lua",
+        "line": 356,
+        "type": "check",
+        "declarative": true,
+        "mods": [
+          {
+            "target": "enemyModList",
+            "name": "PoisonChance",
+            "type": "BASE",
+            "valueExpr": "100",
+            "valueShape": "N",
+            "source": "Map mod of Venom",
+            "extraArgs": []
+          }
+        ]
+      }
+    ]
+  },
+  "transcodeTime": {
+    "note": "Function values in files that ticket 03 executes once at transcode time. They must not be emitted as behaviour keys.",
+    "files": [
+      {
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "disposition": "transcode-time",
+        "reason": "Pure string synthesis of legacy unique variants. Ticket 03 runs this file once during transcoding and emits the expanded uniques as data, so none of its function values become behaviour keys."
+      }
+    ],
+    "functions": [
+      {
+        "id": "getModTagString",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 9,
+        "category": "named-declaration",
+        "owner": ""
+      },
+      {
+        "id": "mod:gsub",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 223,
+        "category": "call-argument",
+        "owner": ""
+      },
+      {
+        "id": "mod:gsub",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 225,
+        "category": "call-argument",
+        "owner": ""
+      },
+      {
+        "id": "mod:gsub",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 227,
+        "category": "call-argument",
+        "owner": ""
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 300,
+        "category": "data-field",
+        "owner": "ClarityManaAddedAsEnergyShield"
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 307,
+        "category": "data-field",
+        "owner": "ClarityManaRecoveryRate"
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 311,
+        "category": "data-field",
+        "owner": "DisciplineEnergyShieldRecoveryRate"
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 315,
+        "category": "data-field",
+        "owner": "MalevolenceDamageOverTimeMultiplier"
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 319,
+        "category": "data-field",
+        "owner": "MalevolenceLifeAndEnergyShieldRecoveryRate"
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 323,
+        "category": "data-field",
+        "owner": "PrecisionIncreasedCriticalStrikeMultiplier"
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 327,
+        "category": "data-field",
+        "owner": "VitalityDamageLifeLeech"
+      },
+      {
+        "id": "legacyMod",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 334,
+        "category": "data-field",
+        "owner": "VitalityLifeRecoveryRate"
+      },
+      {
+        "id": "abbreviateModId",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 425,
+        "category": "local-value",
+        "owner": ""
+      },
+      {
+        "id": "table.sort",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 472,
+        "category": "call-argument",
+        "owner": ""
+      },
+      {
+        "id": "buildTreeDependentUniques",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 548,
+        "category": "named-declaration",
+        "owner": ""
+      },
+      {
+        "id": "buildForbidden",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 553,
+        "category": "named-declaration",
+        "owner": ""
+      },
+      {
+        "id": "buildKeystoneItems",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 599,
+        "category": "named-declaration",
+        "owner": ""
+      },
+      {
+        "id": "isKeystoneNative",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 612,
+        "category": "nested-helper",
+        "owner": ""
+      },
+      {
+        "id": "table.sort",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 698,
+        "category": "call-argument",
+        "owner": ""
+      },
+      {
+        "id": "table.sort",
+        "file": "src/Data/Uniques/Special/Generated.lua",
+        "line": 766,
+        "category": "call-argument",
+        "owner": ""
+      }
+    ]
+  },
+  "excluded": [
+    {
+      "category": "call-argument",
+      "count": 6,
+      "reason": "An anonymous callback passed straight to a library call (gsub, table.sort). It never reaches a data table, so nothing can reference it by key.",
+      "sites": [
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 223,
+          "binding": "mod:gsub"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 225,
+          "binding": "mod:gsub"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 227,
+          "binding": "mod:gsub"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 472,
+          "binding": "table.sort"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 698,
+          "binding": "table.sort"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 766,
+          "binding": "table.sort"
+        }
+      ]
+    },
+    {
+      "category": "chunk-wrapper",
+      "count": 5,
+      "reason": "Immediately-invoked chunk wrapper used to stay under the Lua 200-local and constant limits in a generated file. No behaviour.",
+      "sites": [
+        {
+          "file": "src/Data/ModCache.lua",
+          "line": 2,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/ModCache.lua",
+          "line": 5004,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/ModCache.lua",
+          "line": 10006,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/ModCache.lua",
+          "line": 15008,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/ModCache.lua",
+          "line": 20010,
+          "binding": ""
+        }
+      ]
+    },
+    {
+      "category": "di-wrapper",
+      "count": 35,
+      "reason": "File-level dependency-injection wrapper: the chunk returns a function so the loader can inject mod/flag/skill helpers. Carries no behaviour; ticket 03 evaluates it during transcoding.",
+      "sites": [
+        {
+          "file": "src/Data/Bases/amulet.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/axe.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/belt.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/body.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/boots.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/bow.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/claw.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/dagger.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/fishing.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/flask.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/gloves.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/graft.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/helmet.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/jewel.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/mace.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/quiver.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/ring.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/shield.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/staff.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/sword.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/tincture.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Bases/wand.lua",
+          "line": 3,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Minions.lua",
+          "line": 8,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/SkillStatMap.lua",
+          "line": 6,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/act_str.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/glove.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/minion.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/other.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/spectre.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/sup_dex.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/sup_int.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Skills/sup_str.lua",
+          "line": 7,
+          "binding": ""
+        },
+        {
+          "file": "src/Data/Spectres.lua",
+          "line": 8,
+          "binding": ""
+        }
+      ]
+    },
+    {
+      "category": "local-value",
+      "count": 1,
+      "reason": "A file-local helper closure. Ported as ordinary C# code.",
+      "sites": [
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 425,
+          "binding": "abbreviateModId"
+        }
+      ]
+    },
+    {
+      "category": "named-declaration",
+      "count": 8,
+      "reason": "An ordinary named function in a data file. Ported as ordinary C# code by the ticket that owns the file, not through the behaviour registry.",
+      "sites": [
+        {
+          "file": "src/Data/Global.lua",
+          "line": 80,
+          "binding": "updateColorCode"
+        },
+        {
+          "file": "src/Data/Global.lua",
+          "line": 89,
+          "binding": "hexToRGB"
+        },
+        {
+          "file": "src/Data/Global.lua",
+          "line": 179,
+          "binding": "ClearMatchKeywordFlagsCache"
+        },
+        {
+          "file": "src/Data/Global.lua",
+          "line": 189,
+          "binding": "MatchKeywordFlags"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 9,
+          "binding": "getModTagString"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 548,
+          "binding": "buildTreeDependentUniques"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 553,
+          "binding": "buildForbidden"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 599,
+          "binding": "buildKeystoneItems"
+        }
+      ]
+    },
+    {
+      "category": "nested-helper",
+      "count": 7,
+      "reason": "Declared inside another function body, so it is part of that function and is ported along with it. It is not separately addressable by key.",
+      "sites": [
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 7164,
+          "binding": "hitChance"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 13404,
+          "binding": "hitChance"
+        },
+        {
+          "file": "src/Data/Skills/act_dex.lua",
+          "line": 13630,
+          "binding": "hitChance"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11696,
+          "binding": "hitChance"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 11944,
+          "binding": "hitChance"
+        },
+        {
+          "file": "src/Data/Skills/act_int.lua",
+          "line": 12176,
+          "binding": "hitChance"
+        },
+        {
+          "file": "src/Data/Uniques/Special/Generated.lua",
+          "line": 612,
+          "binding": "isKeystoneNative"
+        }
+      ]
+    }
+  ]
+}
