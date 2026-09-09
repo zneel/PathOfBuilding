@@ -83,49 +83,51 @@ Phases 0 and 1 are strictly sequential prerequisites — the oracles are what ma
 
 See `tickets/`. Each is self-contained: goal, scope with file paths and LOC, the gotchas found during codebase mapping, acceptance criteria, dependencies, and named libraries.
 
-| # | Ticket | Phase |
-|---|---|---|
-| 01 | Solution scaffold | 0 |
-| 02 | LuaCompat numeric layer | 0 |
-| 03 | Lua → JSON → MessagePack data transcoder | 0 |
-| 04 | Behaviour-key contract | 0 |
-| 05 | ModCache parser oracle | 1 |
-| 06 | Headless mod-store dump harness | 1 |
-| 07 | Golden output corpus | 1 |
-| 08 | Test infrastructure and differential fuzzing | 1 |
-| 09 | Mod data model | 2 |
-| 10 | ModStore, ModDb, ModList and the query API | 2 |
-| 11 | EvalMod: the tag evaluator | 2 |
-| 12 | Lua-pattern → Regex translator | 2 |
-| 13 | ModParser: data tables and the scan algorithm | 2 |
-| 14 | ModParser: the closure subset | 2 |
-| 15 | Item model and item-text parsing | 2 |
-| 16 | PassiveTree data and sprite atlases | 2 |
-| 17 | PassiveSpec: allocation, pathing, cluster jewels | 2 |
-| 18 | Data loaders | 2 |
-| 19 | Behaviour registry implementation | 2 |
-| 20 | CalcSession: eliminate global mutable state | 3 |
-| 21 | CalcSetup: environment construction | 3 |
-| 22 | CalcActiveSkill | 3 |
-| 23 | CalcPerform: the orchestrator | 3 |
-| 24 | CalcOffence | 3 |
-| 25 | CalcDefence | 3 |
-| 26 | Triggers, mirages, and full DPS | 3 |
-| 27 | Avalonia shell and the layer-sorted Skia draw queue | 4 |
-| 28 | Bitmap font atlas and the colour-escape text pipeline | 4 |
-| 29 | Input mapping and platform services | 4 |
-| 30 | HTTP layer: delete LaunchSubScript | 4 |
-| 31 | Build XML and build codes | 4 |
-| 32 | PoE OAuth and trade API | 4 |
-| 33 | MVVM foundation: kill the function-valued property system | 5 |
-| 34 | Async calc pipeline | 5 |
-| 35 | Generic widget port | 5 |
-| 36 | Simple tabs: Notes, Config, Skills | 5 |
-| 37 | Tooltip renderer | 5 |
-| 38 | CalcsTab and the breakdown panels | 5 |
-| 39 | ItemsTab | 5 |
-| 40 | PassiveTreeView canvas | 5 |
-| 41 | Import, Party and Compare tabs | 5 |
-| 42 | Application shell and build list | 5 |
-| 43 | Replace the self-updater with Velopack | 6 |
-| 44 | Linux packaging and release CI | 6 |
+Each ticket is mirrored as a GitHub issue (ticket NN = issue NN+1); the epic is [#1](https://github.com/zneel/PathOfBuilding/issues/1).
+
+| # | Ticket | Phase | Issue |
+|---|---|---|---|
+| 01 | Solution scaffold | 0 | [#2](https://github.com/zneel/PathOfBuilding/issues/2) |
+| 02 | LuaCompat numeric layer | 0 | [#3](https://github.com/zneel/PathOfBuilding/issues/3) |
+| 03 | Lua → JSON → MessagePack data transcoder | 0 | [#4](https://github.com/zneel/PathOfBuilding/issues/4) |
+| 04 | Behaviour-key contract | 0 | [#5](https://github.com/zneel/PathOfBuilding/issues/5) |
+| 05 | ModCache parser oracle | 1 | [#6](https://github.com/zneel/PathOfBuilding/issues/6) |
+| 06 | Headless mod-store dump harness | 1 | [#7](https://github.com/zneel/PathOfBuilding/issues/7) |
+| 07 | Golden output corpus | 1 | [#8](https://github.com/zneel/PathOfBuilding/issues/8) |
+| 08 | Test infrastructure and differential fuzzing | 1 | [#9](https://github.com/zneel/PathOfBuilding/issues/9) |
+| 09 | Mod data model | 2 | [#10](https://github.com/zneel/PathOfBuilding/issues/10) |
+| 10 | ModStore, ModDb, ModList and the query API | 2 | [#11](https://github.com/zneel/PathOfBuilding/issues/11) |
+| 11 | EvalMod: the tag evaluator | 2 | [#12](https://github.com/zneel/PathOfBuilding/issues/12) |
+| 12 | Lua-pattern → Regex translator | 2 | [#13](https://github.com/zneel/PathOfBuilding/issues/13) |
+| 13 | ModParser: data tables and the scan algorithm | 2 | [#14](https://github.com/zneel/PathOfBuilding/issues/14) |
+| 14 | ModParser: the closure subset | 2 | [#15](https://github.com/zneel/PathOfBuilding/issues/15) |
+| 15 | Item model and item-text parsing | 2 | [#16](https://github.com/zneel/PathOfBuilding/issues/16) |
+| 16 | PassiveTree data and sprite atlases | 2 | [#17](https://github.com/zneel/PathOfBuilding/issues/17) |
+| 17 | PassiveSpec: allocation, pathing, cluster jewels | 2 | [#18](https://github.com/zneel/PathOfBuilding/issues/18) |
+| 18 | Data loaders | 2 | [#19](https://github.com/zneel/PathOfBuilding/issues/19) |
+| 19 | Behaviour registry implementation | 2 | [#20](https://github.com/zneel/PathOfBuilding/issues/20) |
+| 20 | CalcSession: eliminate global mutable state | 3 | [#21](https://github.com/zneel/PathOfBuilding/issues/21) |
+| 21 | CalcSetup: environment construction | 3 | [#22](https://github.com/zneel/PathOfBuilding/issues/22) |
+| 22 | CalcActiveSkill | 3 | [#23](https://github.com/zneel/PathOfBuilding/issues/23) |
+| 23 | CalcPerform: the orchestrator | 3 | [#24](https://github.com/zneel/PathOfBuilding/issues/24) |
+| 24 | CalcOffence | 3 | [#25](https://github.com/zneel/PathOfBuilding/issues/25) |
+| 25 | CalcDefence | 3 | [#26](https://github.com/zneel/PathOfBuilding/issues/26) |
+| 26 | Triggers, mirages, and full DPS | 3 | [#27](https://github.com/zneel/PathOfBuilding/issues/27) |
+| 27 | Avalonia shell and the layer-sorted Skia draw queue | 4 | [#28](https://github.com/zneel/PathOfBuilding/issues/28) |
+| 28 | Bitmap font atlas and the colour-escape text pipeline | 4 | [#29](https://github.com/zneel/PathOfBuilding/issues/29) |
+| 29 | Input mapping and platform services | 4 | [#30](https://github.com/zneel/PathOfBuilding/issues/30) |
+| 30 | HTTP layer: delete LaunchSubScript | 4 | [#31](https://github.com/zneel/PathOfBuilding/issues/31) |
+| 31 | Build XML and build codes | 4 | [#32](https://github.com/zneel/PathOfBuilding/issues/32) |
+| 32 | PoE OAuth and trade API | 4 | [#33](https://github.com/zneel/PathOfBuilding/issues/33) |
+| 33 | MVVM foundation: kill the function-valued property system | 5 | [#34](https://github.com/zneel/PathOfBuilding/issues/34) |
+| 34 | Async calc pipeline | 5 | [#35](https://github.com/zneel/PathOfBuilding/issues/35) |
+| 35 | Generic widget port | 5 | [#36](https://github.com/zneel/PathOfBuilding/issues/36) |
+| 36 | Simple tabs: Notes, Config, Skills | 5 | [#37](https://github.com/zneel/PathOfBuilding/issues/37) |
+| 37 | Tooltip renderer | 5 | [#38](https://github.com/zneel/PathOfBuilding/issues/38) |
+| 38 | CalcsTab and the breakdown panels | 5 | [#39](https://github.com/zneel/PathOfBuilding/issues/39) |
+| 39 | ItemsTab | 5 | [#40](https://github.com/zneel/PathOfBuilding/issues/40) |
+| 40 | PassiveTreeView canvas | 5 | [#41](https://github.com/zneel/PathOfBuilding/issues/41) |
+| 41 | Import, Party and Compare tabs | 5 | [#42](https://github.com/zneel/PathOfBuilding/issues/42) |
+| 42 | Application shell and build list | 5 | [#43](https://github.com/zneel/PathOfBuilding/issues/43) |
+| 43 | Replace the self-updater with Velopack | 6 | [#44](https://github.com/zneel/PathOfBuilding/issues/44) |
+| 44 | Linux packaging and release CI | 6 | [#45](https://github.com/zneel/PathOfBuilding/issues/45) |
