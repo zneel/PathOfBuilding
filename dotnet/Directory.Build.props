@@ -24,6 +24,29 @@
     <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 
+  <!--
+    Banned-API rule for the engine projects (migration ticket 02). Math.Round is banker's
+    rounding and Lua's round() is not, so raw System.Math rounding is forbidden inside the
+    arithmetic that has to match the Lua engine bit for bit; Pob.Core.LuaCompat is the only
+    sanctioned route. Pob.Rendering, Pob.App, Pob.Platform and the test projects are left
+    unrestricted on purpose, because geometry and layout code uses Math.Floor legitimately.
+
+    The analyzer is attached here rather than in the individual .csproj files because
+    Pob.Tests/ArchitectureTests asserts that Pob.Core's .csproj declares no PackageReference
+    at all (the ticket 01 "no UI dependencies" guard). PrivateAssets="all" keeps the analyzer
+    out of the reference graph either way.
+  -->
+  <PropertyGroup>
+    <PobEngineProject Condition="'$(MSBuildProjectName)' == 'Pob.Core'">true</PobEngineProject>
+    <PobEngineProject Condition="'$(MSBuildProjectName)' == 'Pob.Calc'">true</PobEngineProject>
+    <PobEngineProject Condition="'$(MSBuildProjectName)' == 'Pob.Parsing'">true</PobEngineProject>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(PobEngineProject)' == 'true'">
+    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" PrivateAssets="all" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)BannedSymbols.txt" />
+  </ItemGroup>
+
   <PropertyGroup>
     <RootNamespace>$(MSBuildProjectName)</RootNamespace>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>

@@ -1,0 +1,42 @@
+; Banned APIs for the engine projects (Pob.Core, Pob.Calc, Pob.Parsing) -- see
+; docs/migration/tickets/02-luacompat-numerics.md. Applied by
+; Microsoft.CodeAnalysis.BannedApiAnalyzers (RS0030); wired up in Directory.Build.props,
+; which deliberately does NOT hand this file to Pob.Rendering, Pob.App, Pob.Platform or
+; any test project -- geometry and layout code uses Math.Floor legitimately.
+;
+; Format: <DocumentationCommentId>;<message>
+;
+; The engine's arithmetic has to match Lua's bit for bit. Math.Round is banker's rounding
+; by default and Lua's round() is half-up toward positive infinity, so the two disagree on
+; every exact half; Math.Floor/Ceiling/Truncate are fine in isolation but the call sites
+; that need them in this engine also need an epsilon or a modf sign rule that is easy to
+; drop. Route everything through Pob.Core.LuaCompat, which is pinned to a corpus dumped
+; from the real interpreter.
+
+M:System.Math.Round(System.Double);Use Pob.Core.LuaCompat.Round -- Math.Round is banker's rounding; Lua's round() (src/Modules/Common.lua:709) is half-up toward positive infinity.
+M:System.Math.Round(System.Double,System.Int32);Use Pob.Core.LuaCompat.Round -- Math.Round is banker's rounding; Lua's round() (src/Modules/Common.lua:709) is half-up toward positive infinity.
+M:System.Math.Round(System.Double,System.MidpointRounding);Use Pob.Core.LuaCompat.Round -- Lua's round() (src/Modules/Common.lua:709) is floor(val + 0.5), which is not any MidpointRounding mode.
+M:System.Math.Round(System.Double,System.Int32,System.MidpointRounding);Use Pob.Core.LuaCompat.Round -- Lua's round() (src/Modules/Common.lua:709) is floor(val * 10^dec + 0.5) / 10^dec, which is not any MidpointRounding mode.
+M:System.Math.Round(System.Decimal);Use Pob.Core.LuaCompat.Round on a double -- Lua has one number type and the engine must never use decimal.
+M:System.Math.Round(System.Decimal,System.Int32);Use Pob.Core.LuaCompat.Round on a double -- Lua has one number type and the engine must never use decimal.
+M:System.Math.Round(System.Decimal,System.MidpointRounding);Use Pob.Core.LuaCompat.Round on a double -- Lua has one number type and the engine must never use decimal.
+M:System.Math.Round(System.Decimal,System.Int32,System.MidpointRounding);Use Pob.Core.LuaCompat.Round on a double -- Lua has one number type and the engine must never use decimal.
+
+M:System.Math.Floor(System.Double);Use Pob.Core.LuaCompat -- MathFloor for math.floor, Floor for Common.lua's global floor (which carries a +0.0001 epsilon), MultiplierFloor for ModStore.lua:403.
+M:System.Math.Floor(System.Decimal);Use Pob.Core.LuaCompat.MathFloor on a double -- Lua has one number type and the engine must never use decimal.
+
+M:System.Math.Ceiling(System.Double);Use Pob.Core.LuaCompat.MathCeil (math.ceil) or CeilSymmetric (src/Modules/Common.lua:778).
+M:System.Math.Ceiling(System.Decimal);Use Pob.Core.LuaCompat.MathCeil on a double -- Lua has one number type and the engine must never use decimal.
+
+M:System.Math.Truncate(System.Double);Use Pob.Core.LuaCompat.Truncate or Modf -- Lua's math.modf has sign-of-zero rules that Math.Truncate alone does not reproduce.
+M:System.Math.Truncate(System.Decimal);Use Pob.Core.LuaCompat.Truncate on a double -- Lua has one number type and the engine must never use decimal.
+
+; The single-precision mirrors, banned for the same reason plus the obvious one: Lua
+; numbers are doubles, so a float ever entering the engine's arithmetic is already wrong.
+M:System.MathF.Round(System.Single);Use Pob.Core.LuaCompat.Round on a double -- Lua numbers are doubles.
+M:System.MathF.Round(System.Single,System.Int32);Use Pob.Core.LuaCompat.Round on a double -- Lua numbers are doubles.
+M:System.MathF.Round(System.Single,System.MidpointRounding);Use Pob.Core.LuaCompat.Round on a double -- Lua numbers are doubles.
+M:System.MathF.Round(System.Single,System.Int32,System.MidpointRounding);Use Pob.Core.LuaCompat.Round on a double -- Lua numbers are doubles.
+M:System.MathF.Floor(System.Single);Use Pob.Core.LuaCompat.MathFloor on a double -- Lua numbers are doubles.
+M:System.MathF.Ceiling(System.Single);Use Pob.Core.LuaCompat.MathCeil on a double -- Lua numbers are doubles.
+M:System.MathF.Truncate(System.Single);Use Pob.Core.LuaCompat.Truncate on a double -- Lua numbers are doubles.
