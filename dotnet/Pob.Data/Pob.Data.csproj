@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Generated data loaders and the behaviour registry (tickets 18-19). -->
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Pob.Core/Pob.Core.csproj" />
+  </ItemGroup>
+
+</Project>

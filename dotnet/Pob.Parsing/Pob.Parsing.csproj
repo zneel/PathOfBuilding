@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ModParser port + the Lua-pattern -> Regex translator (tickets 12-14). -->
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Pob.Core/Pob.Core.csproj" />
+  </ItemGroup>
+
+</Project>

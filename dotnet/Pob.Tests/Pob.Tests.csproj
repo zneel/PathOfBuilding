@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Conformance oracles + the ported spec suite (tickets 05-08).
+    References only the headless libraries: nothing here may pull in Avalonia,
+    otherwise the "Pob.Core has no UI dependencies" guard test below is vacuous.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Pob.Core/Pob.Core.csproj" />
+    <ProjectReference Include="../Pob.Parsing/Pob.Parsing.csproj" />
+    <ProjectReference Include="../Pob.Data/Pob.Data.csproj" />
+    <ProjectReference Include="../Pob.Calc/Pob.Calc.csproj" />
+    <ProjectReference Include="../Pob.Platform/Pob.Platform.csproj" />
+  </ItemGroup>
+
+</Project>

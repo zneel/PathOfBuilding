@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+[Rr]elease/
+[Dd]ebug/
+artifacts/
+
+# Test output
+TestResults/
+*.trx
+*.coverage
+*.coverfile
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Tooling
+*.user
+*.suo
+.vs/
+*.binlog
