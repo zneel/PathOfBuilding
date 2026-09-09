@@ -27,4 +27,6 @@ C# side: build the same DB, dump, diff.
 - A snapshot test in C# that diffs against them.
 
 ## Libraries
-Verify (VerifyTests) for snapshot diffing — its `.received`/`.verified` workflow matches the existing `spec/GenerateBuilds.lua` regenerate-goldens habit.
+**Decision: a hand-rolled snapshot comparer, not Verify.** `ModStoreSnapshot.Verify(name, text)` implements the same `.received`/`.verified` workflow with `POB_MODSTORE_ACCEPT=1 dotnet test` as the regenerate switch. Verify.XunitV3 remains registered in `Directory.Packages.props` if the tree later wants its diff tooling; swapping in is one csproj line plus one line per call site. Not worth a dependency for behaviour already covered and tested.
+
+**`env.minion.modDB` is absent from all five 3.13 test builds.** `env.minion` is `env.player.mainSkill.minion` (`CalcPerform.lua:1316`), and none of them has a minion *main* skill — four carry a golem, but not as main. The generator handles the store and a test pins the gap, but that path is unexercised and #22–#27 will have **no minion-setup oracle** until a build with a minion main skill is added to the corpus (ticket 07).

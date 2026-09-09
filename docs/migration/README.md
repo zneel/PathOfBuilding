@@ -65,6 +65,34 @@ Avalonia 11 + SkiaSharp for rendering; `System.IO.Compression.ZLibStream` for bu
 4. **Synchronous full-engine recalc on the draw thread.** `build.buildFlag` → `wipeGlobalCache()` → `BuildOutput()` inline (`src/Modules/Build.lua:1258-1272`). Acceptable in an immediate-mode loop; freezes an Avalonia window. (Ticket 34)
 5. **`src/Modules/ModParser.lua` (7,021 LOC)** — natural-language mod parsing, required because 20,792 LOC of `src/Data/Uniques/` and every `<Item>` in every build file are stored as free text. (Tickets 12–14)
 
+## Lua-side toolchain (for every oracle and transcoder ticket)
+
+The conformance oracles run the real Lua engine headlessly. Constraints, all measured:
+
+**LuaJIT is required. Stock Lua 5.1 cannot run PoB at all** — three independent blockers:
+- `goto`/labels (Lua 5.2 syntax) in 20 places outside TreeData; `src/Modules/Data.lua:228` is hit first.
+- `src/Launch.lua:18` calls `jit.opt.start('maxtrace=4000','maxmcode=8192')`.
+- `bit.*` is a LuaJIT builtin; `src/Modules/ModTools.lua:15` binds `bit.band`.
+
+So "verify under both interpreters" is not a meaningful check for anything that loads the engine. It *is* meaningful for standalone scripts (e.g. the `LuaCompat` dump, which sources only `Common.lua` definitions).
+
+**Invocation** — from `src/`:
+```
+LUA_PATH="../runtime/lua/?.lua;../runtime/lua/?/init.lua;./?.lua;;" \
+LUA_CPATH="/usr/local/lib/lua/5.1/?.so;;" \
+luajit -e 'dofile("HeadlessWrapper.lua")'
+```
+Requires the `luautf8` rock (`luarocks --lua-version=5.1 install luautf8`). On Ubuntu the SDK and interpreter come from the distro repos (`apt-get install dotnet-sdk-10.0 luajit luarocks`); `builds.dotnet.microsoft.com` is not reachable from this environment, so the official `dotnet-install.sh` does not work.
+
+**One upstream fix was required**: `src/Modules/Main.lua:342` used `count += 1`, valid only under the patched LuaJIT PoB ships as `runtime/lua51.dll`. Lua reports that at parse time regardless of reachability, so `HeadlessWrapper.lua` would not load. Changed to `count = count + 1`, identical under both.
+
+## Known upstream quirks the port must decide about
+
+- **`Multiplier:QualityOnFlask nil`** — a mod name with a literal `" nil"` appended, from a Lua string concat against a nil value. Present in 3 of the 5 test builds' `modDB`. It is pinned in the #7 golden dumps. Decide deliberately whether the C# port reproduces it or fixes it; either way it must be a conscious choice, because it changes what queries match.
+- **Tag arrays can contain holes.** `createMod` builds them with `select(tagStart, ...)` inside a table constructor, so a nil mid-list leaves a hole. `formatTags` and `ModStore:EvalMod` both walk with `ipairs` and stop there, so the shadowed tags are dead in the engine. A C# `List<ModTag>` has no holes, so a faithful port drops them — which is correct, not a bug. Two mods in the ModCache corpus hit this.
+- **Insertion order within a mod bucket is not reproducible run to run.** The #7 dumps sort by canonical encoding and discard array order. If the port ever depends on within-bucket order, that dependency cannot be tested against Lua.
+- **The engine stores negative zero** (an inactive Chill contributes `-0 INC ActionSpeed`). Lua prints `-0`; `%d` formatting and `JsonElement.GetDouble()` both silently fold the sign. Pinned by tests in #7.
+
 ## Phases
 
 | Phase | Tickets | Notes |
