@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Performance baselines (migration ticket 08). See README.md in this directory for how to run
+    it; an XML comment cannot contain a double hyphen, so the command line lives there.
+
+    NOT in PathOfBuilding.sln yet: ticket 08 is being implemented alongside tickets 05, 06 and
+    07, which share that file, so adding the project is left for the merge.
+
+    BenchmarkDotNet insists on a Release, optimised, non-test executable and spawns its own
+    child process per benchmark, so this cannot live inside Pob.Tests.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <Optimize>true</Optimize>
+    <!--
+      Workstation, non-concurrent GC: the numbers should reflect the app's own workload, which
+      is one interactive process, not a server.
+    -->
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Pob.Core/Pob.Core.csproj" />
+  </ItemGroup>
+
+</Project>
