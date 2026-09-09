@@ -56,4 +56,17 @@
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>
 
+  <!--
+    Conformance-oracle stack (tickets 05-08). Added centrally so the oracle tickets
+    never need to touch this file concurrently.
+    Note: FluentAssertions v8 moved to a paid commercial licence; Shouldly is the
+    permissively-licensed alternative and is what the tickets specify.
+  -->
+  <ItemGroup>
+    <PackageVersion Include="Verify.XunitV3" Version="30.19.0" />
+    <PackageVersion Include="Shouldly" Version="4.3.0" />
+    <PackageVersion Include="CsCheck" Version="4.5.0" />
+    <PackageVersion Include="BenchmarkDotNet" Version="0.15.4" />
+  </ItemGroup>
+
 </Project>
